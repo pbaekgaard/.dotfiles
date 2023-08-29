@@ -3,6 +3,8 @@ let-env STARSHIP_SHELL = "nu"
 def create_left_prompt [] {
     starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
 }
+use ~/.config/nushell/modules/virtual_environments/nu_conda/nu_conda.nu
+use ~/.config/nushell/modules/virtual_environments/conda.nu
 
 # Use nushell functions to define your right and left prompt
 let-env PROMPT_COMMAND = { || create_left_prompt }
