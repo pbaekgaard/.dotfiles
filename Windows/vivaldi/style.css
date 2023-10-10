@@ -1,0 +1,3 @@
+.toolbar .toolbar-spacer-flexible > button {
+  -webkit-app-region: drag;
+}
