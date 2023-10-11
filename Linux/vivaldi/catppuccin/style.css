@@ -3,16 +3,28 @@
   top: 0px !important;
 }
 
-#browser.linux .window-buttongroup button.window-minimize,
-#browser.linux .window-buttongroup button.window-maximize,
-#browser.linux .window-buttongroup button.window-restore,
-#browser.linux .window-buttongroup button.window-close {
+#browser.linux #header .window-buttongroup button.window-minimize,
+#browser.linux #header .window-buttongroup button.window-maximize,
+#browser.linux #header .window-buttongroup button.window-restore,
+#browser.linux #header .window-buttongroup button.window-close {
   width: 16px !important;
   margin-left: 10px !important;
   height: 16px !important;
   margin-right: 0px !important;
   padding: 0px !important;
-  transform: translateY(15px);
+  margin-top: 7px !important;
+}
+
+#browser.linux #main .window-buttongroup button.window-minimize,
+#browser.linux #main .window-buttongroup button.window-maximize,
+#browser.linux #main .window-buttongroup button.window-restore,
+#browser.linux #main .window-buttongroup button.window-close {
+  width: 16px !important;
+  margin-left: 10px !important;
+  height: 16px !important;
+  margin-right: 0px !important;
+  padding: 0px !important;
+  margin-top: 16px !important;
 }
 
 #browser.linux .window-buttongroup button.window-minimize svg path,
@@ -43,14 +55,6 @@
 #browser.linux .window-buttongroup button:hover {
   background-color: transparent !important;
 }
-
-/*The :window-inactive selector only works on text and scroll bar selection, unfortunately*/
-/*
-#browser.linux .window-buttongroup:window-inactive button {
-    background-color: transparent !important;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEYSURBVCiRldJBTsJAFMbxb16aMpO0dEF6GgXttoFTEF0QV3AKFxqXEK5Bu60YNV5lVqXMZjq0AxuaGBXT/tfvl2/zGL612WyGjuMsOOcjIvKttXut9dvhcHiaTCbvzR0DgCzLHGPMMgiCqed5+JlSCnmer4UQsyiKKgcAjDHLMAynruv+AgDg+z5c172TUgLAPUuSZDQYDLZ/LVxYvCYiWrQBzSJjbE6c82ErcU4IcUtE1O+CiKhP1tp9F1TXdUFlWW67IK11RtbaR6VUK6CUwvF4fKE4jr+KoliXZfkvMMZgt9ut4jj+IADo9XozKeX60qJSClLKFef8ATi/UVOapleMsbkQ4oaIAmttobV+rarqeTwefzZ3J6mBe8GCnGA1AAAAAElFTkSuQmCC);
-}
-*/
 
 #browser.linux .window-buttongroup button.window-minimize:hover {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AYht+maqVUHKwg4pChOtnFPxxrFYpQIdQKrTqYXPoHTRqSFhdHwbXg4M9i1cHFWVcHV0EQ/AFxdXFSdJESv0sKLWK847iH97735e47QGiUmWZ1xQBNr5qpRFzMZFfFwCuCNHswiGmZWcacJCXhOb7u4eP7XZRnedf9OfrUnMUAn0gcY4ZZJd4gntmsGpz3icOsKKvE58TjJl2Q+JHristvnAsOCzwzbKZT88RhYrHQwUoHs6KpEU8RR1RNp3wh47LKeYuzVq6x1j35C0M5fWWZ67RGkMAiliBBhIIaSiijiijtOikWUnQe9/APO36JXAq5SmDkWEAFGmTHD/4Hv3tr5Scn3KRQHOh+se2PUSCwCzTrtv19bNvNE8D/DFzpbX+lAcx+kl5va5EjoH8buLhua8oecLkDDD0Zsik7kp+WkM8D72f0TVlg4BYIrrl9a53j9AFIU6+SN8DBITBWoOx1j3f3dvbt35pW/34AlMZytNi6n3EAAAAGYktHRAD/AP8A/6C9p5MAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfnCgoGOCdUgAx9AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAdBJREFUKM+Nkr1rU2EUxn/v/UpybzqkNjem5ItaBKEI3RQK2R0C/hOiII4GKmTIZPMPFMEOgri5BBw7OKlk6FLENo0mjU2boFEhicn9eh1qq5S0+sBZznmecw7nOYLfeLo6a+WXxrH6gVHJ2G4hY7sBwH5PV1pdvbo47zx8vR3+dudxfwggAN49sczBT7W4kPRKmbgjT/J/QbZ6hvh4qJWjEX/txt3hSN14NGuZIYpLuUlp/pLHFBGAiEV9rHCQb3/R/ZVlqybqL8yUptLO2g5SciGEgGbXwPVIK/UDo5KJO/JfIgApIWs7crdjVJRswi2cs965g3O2W9DSc8fXgwCURVAuA+oZrg/BEQR7gEIm7gba6YoyQCTuI1IFUCzgpCAgGCI/V5GdByAUJCC2n1mDa+mJdUwKgzCnuQFyBIwBeL8fGiqtrl79034Msg/y65non4oA2ezqVbHz3EzpGu1c4v/s+HRk4PkirV6/OuNLiRcNB/loRF4o6n3X+NA2ylsNY1MAvFm3zMFYLV5JeqWsPf3lml1DNA718kzEX7t5bzBSATZeue7KslXLzHnrb3ciSdcTC2ZITlxPOHsdw6vtRl7GosGtrYaxeXv1xwjgF8E8w7WaeT7jAAAAAElFTkSuQmCC);
