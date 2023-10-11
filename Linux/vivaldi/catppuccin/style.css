@@ -1,17 +1,20 @@
 #browser.linux .window-buttongroup {
-  right: 0px !important;
+  right: auto !important;
   top: 0px !important;
 }
-#browser .window-buttongroup {
-  height: 16px !important;
-  margin-top: 16px !important;
-  margin-right: 0px !important;
-}
-#browser .window-buttongroup button {
-  height: 16px !important;
+
+#browser.linux .window-buttongroup button.window-minimize,
+#browser.linux .window-buttongroup button.window-maximize,
+#browser.linux .window-buttongroup button.window-restore,
+#browser.linux .window-buttongroup button.window-close {
   width: 16px !important;
   margin-left: 10px !important;
+  height: 16px !important;
+  margin-right: 0px !important;
+  padding: 0px !important;
+  transform: translateY(15px);
 }
+
 #browser.linux .window-buttongroup button.window-minimize svg path,
 #browser.linux .window-buttongroup button.window-maximize svg path,
 #browser.linux .window-buttongroup button.window-restore svg path,
