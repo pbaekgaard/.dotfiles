@@ -1,0 +1,8 @@
+ #!/bin/bash
+if pgrep -x "notion" > /dev/null
+then
+  bspc desktop ^5 --focus
+else
+  spotify
+fi
+
