@@ -35,6 +35,9 @@ launch_bar() {
 
 	# Launch the bar
 	for mon in $(polybar --list-monitors | cut -d":" -f1); do
+    if [ "$mon" == "eDP-1" ]; then
+      MONITOR=$mon polybar -q main -c "$DIR"/config.laptop.ini &
+    fi
 		MONITOR=$mon polybar -q main -c "$DIR"/config.ini &
 	done
 }

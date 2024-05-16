@@ -33,25 +33,25 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='JetBrains Mono:size=10;3'
+polybar_font='Liga SFMono Nerd Font:size=11;3'
 
 # Rofi
-rofi_font='Iosevka 10'
+rofi_font='SF Pro Display 10'
 rofi_icon='Zafiro'
 
 # Terminal
-terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
+terminal_font_name='Liga SFMono Nerd Font'
+terminal_font_size='11'
 
 # Geany
 geany_colors='arc.conf'
 geany_font='JetBrains Mono 10'
 
 # Appearance
-gtk_font='Noto Sans 9'
+gtk_font='SF Pro Display 10'
 gtk_theme='Arc-Dark'
 icon_theme='Zafiro'
-cursor_theme='Qogirr'
+cursor_theme='Adwaita'
 
 # Dunst
 dunst_width='300'
@@ -64,13 +64,13 @@ dunst_separator='2'
 
 # Picom
 picom_backend='glx'
-picom_corner='0'
+picom_corner='16'
 picom_shadow_r='14'
 picom_shadow_o='0.30'
 picom_shadow_x='-12'
 picom_shadow_y='-12'
-picom_blur_method='none'
-picom_blur_strength='0'
+picom_blur_method='dual_kawase'
+picom_blur_strength='5'
 
 # Bspwm
 bspwm_fbc="$accent"

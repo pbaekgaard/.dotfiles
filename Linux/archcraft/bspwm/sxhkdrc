@@ -115,12 +115,12 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # Switch workspace
-ctrl + alt + {Left,Right}
+super + ctrl + alt + {Left,Right}
 	bspc desktop -f {prev.local,next.local}
 
 # Switch workspace or Send focused Node to another workspace
 super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}' '--follow'
+	bspc {desktop -f,node -d} 'focused:^{1-8}' '--follow'
 
 # Send focused Node to workspace directionally
 super + ctrl + shift + {Left,Right}
@@ -182,4 +182,11 @@ super + {Tab,grave}
 super + space
   ~/.config/bspwm/scripts/keylayout.sh
 
+# Move focused to the next/prev monitor
+super + ctrl + {h, l}
+  bspc node -m {prev,next} --follow
+
+# Monitor Manager
+super + shift + m
+  archcraft-randr
 ##---------- EOF ----------##

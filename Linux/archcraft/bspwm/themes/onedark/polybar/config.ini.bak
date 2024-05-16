@@ -32,8 +32,9 @@ include-file = ./decor.ini
 ; If unspecified, the application will pick the first one it finds.
 ; $ polybar -m | cut -d ':' -f 1
 ; $ xrandr -q | grep " connected" | cut -d ' ' -f1
+# monitor = ${env:MONITOR:}
+# monitor = $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor = ${env:MONITOR:}
-
 ; Use the specified monitor as a fallback if the main one is not found.
 monitor-fallback =
 
@@ -117,14 +118,14 @@ module-margin-right = 0
 
 ; Fonts are defined using <font-name>;<vertical-offset>
 ; Font names are specified using a fontconfig pattern.
-;   font-0 = "JetBrains Mono:size=10;3"
+;   font-0 = "Liga SFMono Nerd Font:size=11;3"
 ;   font-1 = MaterialIcons:size=10
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 ; See the Fonts wiki page for more details
 
 ; text
-font-0 = "JetBrains Mono:size=10;3"
+font-0 = "Liga SFMono Nerd Font:size=11;3"
 ; icons
 font-1 = "Symbols Nerd Font:size=12;3"
 ; glyphs
@@ -144,7 +145,7 @@ font-5 = "archcraft:size=12;3"
 # Default
 modules-left =  LD mod RD dot LD bspwm RD dot cpu dot memory
 modules-center = LD date RD
-modules-right = volume dot bluetooth dot network dot LD sysmenu RD dot LD tray RD dot LD keylayout RD
+modules-right = volume dot bluetooth dot network dot LD sysmenu RD dot LD keylayout RD
 # Alternate
 ;modules-left = openbox 2LD cpu 3LD memory 4LD filesystem 5LD
 ;modules-center = mpd
@@ -264,7 +265,7 @@ compositing-border = over
 
 ; Enables pseudo-transparency for the bar
 ; If set to true the bar can be transparent without a compositor.
-pseudo-transparency = false
+pseudo-transparency = true
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ;;	    __________  ______

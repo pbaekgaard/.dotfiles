@@ -1,11 +1,11 @@
 #! /bin/bash
 
-keylayout=$(cat /home/pbk/.config/bspwm/keylayout)
+keylayout=$(cat ~/.config/bspwm/keylayout)
 
 if [ "$keylayout" = "US" ]; then
   setxkbmap dk
-  echo "DK" > /home/pbk/.config/bspwm/keylayout
+  echo "DK" > ~/.config/bspwm/keylayout
 else
   setxkbmap us
-  echo "US" > /home/pbk/.config/bspwm/keylayout
+  echo "US" > ~/.config/bspwm/keylayout
 fi
