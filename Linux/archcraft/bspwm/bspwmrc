@@ -104,6 +104,7 @@ bspc rule -r *:*
 
 ## 1 > terminal (always open terminal on workspace-1)
 bspc rule -a Alacritty desktop focused:'^1' follow=on focus=on 
+bspc rule -a kitty desktop focused:'^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop focused:'^1' follow=on focus=on
 
 ## 2 > web (always open web browser on workspace-2)
@@ -149,7 +150,7 @@ for i in ${settings[@]}; do
    bspc rule -a $i desktop focused:'^8' state=floating follow=on focus=on; done
 
 ## Always Floating Apps
-declare -a floating=(alacritty-float Pcmanfm Thunar Onboard Yad 'Firefox:Places' \
+declare -a floating=(kitty-float alacritty-float Pcmanfm Thunar Onboard Yad 'Firefox:Places' \
 Viewnior feh Nm-connection-editor calamares Calamares)
 for i in ${floating[@]}; do
    bspc rule -a $i state=floating follow=on focus=on; done

@@ -6,15 +6,15 @@
 
 # Terminal (alacritty)
 super + Return
-	bspterm
+	bspkitty
 
 # Terminal (floating)
 super + shift + Return
-	bspterm --float
+	bspkitty --float
 
 # Terminal (fullscreen)
 super + alt + Return
-	bspterm --full
+	bspkitty --full
 
 ##---------- Rofi Launcher & Menus ----------##
 
@@ -28,7 +28,7 @@ alt + F2
 
 # Rofi Menus/Applets
 super + {b,m,n,r,s,w,x}
-	{rofi_bluetooth,spotify_custom,nmd,rofi_asroot,rofi_screenshot,rofi_windows,rofi_powermenu}
+	{rofi_bluetooth,archcraft-randr,nmd,rofi_asroot,rofi_screenshot,rofi_windows,rofi_powermenu}
 
 super + shift + t
   rofi_themes
@@ -188,5 +188,5 @@ super + ctrl + {h, l}
 
 # Monitor Manager
 super + shift + m
-  archcraft-randr
+  spotify_custom
 ##---------- EOF ----------##

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+##
+## launch alacritty with bspwm config
+
+# bspwm directory
+DIR="$HOME/.config/bspwm"
+CONFIG="$DIR/kitty/kitty.conf"
+
+if [ "$1" == "--float" ]; then
+	kitty --class 'kitty-float' -o initial_window_width=680 -o initial_window_height=456 --config ~/.config/bspwm/kitty/kitty.conf
+elif [ "$1" == "--full" ]; then
+	kitty --class 'kitty-fullscreen,kitty-fullscreen' --config "$CONFIG" \
+		--start-as fullscreen -o font_size=14
+else
+	kitty --config "$CONFIG"
+fi
