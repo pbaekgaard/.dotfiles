@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+# Ensure tmuxifier is loaded
+# source ~/.zshrc
+
+if (( $# == 1 )); then
+    selected=$1
+else
+    selected=$(tmuxifier list-sessions | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+tmuxifier load-session $selected
