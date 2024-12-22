@@ -1,6 +1,8 @@
+#!/bin/zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# export TERM="xterm-color"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -116,12 +118,14 @@ source $ZSH/oh-my-zsh.sh
 ##########################################################################
 alias notes="nvim ~/Nextcloud/Obsidian/Notes/index.md"
 alias v='nvim'
-alias py='python3'
-alias python='python3'
+alias vi='nvim'
+alias py='python3.13'
 alias pip='pip3'
 alias ls='exa'
 alias la='exa -la'
 alias lg='lazygit'
+alias cat='bat'
+alias ssh='kitten ssh'
 alias qnotes='nvim ~/Nextcloud/Notes/Quicknotes.norg'
 
 ##########################################################################
@@ -163,6 +167,7 @@ export NOTION_API_KEY="secret_lzFlqrbTtZJgIeiC29Y4wjqsdPBw9UnN4BKDqNILVnK"
 export PATH="$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin/"
 eval "$(tmuxifier init -)"
 export EDITOR="nvim"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts/"
 
 [ -f "/home/pbk/.ghcup/env" ] && . "/home/pbk/.ghcup/env" # ghcup-env
 
@@ -172,3 +177,5 @@ export EDITOR="nvim"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH=$PATH:/home/pbk/.spicetify
