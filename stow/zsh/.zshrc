@@ -168,6 +168,7 @@ export PATH="$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin/"
 eval "$(tmuxifier init -)"
 export EDITOR="nvim"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts/"
+export TMUXIFIER_TEMPLATE_PATH="$HOME/.config/tmux/templates/"
 
 [ -f "/home/pbk/.ghcup/env" ] && . "/home/pbk/.ghcup/env" # ghcup-env
 
