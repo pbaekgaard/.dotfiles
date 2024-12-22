@@ -1,3 +1,21 @@
 [submodule "nvim/.config/nvim"]
 	path = stow/nvim/.config/nvim
 	url = https://github.com/pbaekgaard/kickstart.nvim
+[submodule "stow/tmux/.config/tmux/plugins/minimal-tmux-status"]
+	path = stow/tmux/.config/tmux/plugins/minimal-tmux-status
+	url = https://git::@github.com/niksingh710/minimal-tmux-status
+[submodule "stow/tmux/.config/tmux/plugins/tmux"]
+	path = stow/tmux/.config/tmux/plugins/tmux
+	url = https://git::@github.com/catppuccin/tmux
+[submodule "stow/tmux/.config/tmux/plugins/tmux-nova"]
+	path = stow/tmux/.config/tmux/plugins/tmux-nova
+	url = https://git::@github.com/o0th/tmux-nova
+[submodule "stow/tmux/.config/tmux/plugins/tmux-sensible"]
+	path = stow/tmux/.config/tmux/plugins/tmux-sensible
+	url = https://git::@github.com/tmux-plugins/tmux-sensible
+[submodule "stow/tmux/.config/tmux/plugins/tmuxifier"]
+	path = stow/tmux/.config/tmux/plugins/tmuxifier
+	url = https://git::@github.com/jimeh/tmuxifier
+[submodule "stow/tmux/.config/tmux/plugins/tpm"]
+	path = stow/tmux/.config/tmux/plugins/tpm
+	url = https://git::@github.com/tmux-plugins/tpm

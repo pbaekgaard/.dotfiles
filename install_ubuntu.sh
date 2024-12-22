@@ -58,6 +58,7 @@ brew install ghc
 brew install go
 brew install npm
 brew install ghcup
+curl -fsSL https://bun.sh/install | bash
 
 source ~/.zshrc
 # Install Tmux
