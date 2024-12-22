@@ -20,7 +20,7 @@ cd $HERE
 git pull --recurse-submodules
 #
 # # Stow config to home directory
-rm ~/.zshrc
+rm -rf $HOME/.zshrc
 cd stow
 stow * -t ~
 
