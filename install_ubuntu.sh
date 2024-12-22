@@ -17,6 +17,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 #
 # # Stow Config
 cd $HERE
+git submodule init
+git submodule update
 git pull --recurse-submodules
 #
 # # Stow config to home directory
