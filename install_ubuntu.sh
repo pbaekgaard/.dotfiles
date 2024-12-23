@@ -76,5 +76,6 @@ rm -rf \$INSTALLDIR
 rm $HOME/.config/tmux/plugins/tmuxifier/templates/*
 ln -s $HOME/.config/tmux/templates/* $HOME/.config/tmux/plugins/tmuxifier/templates
 
+echo "PLEASE ENTER YOUR PASSWORD TO CHANGE SHELL TO ZSH"
 chsh -s /bin/zsh
 zsh
