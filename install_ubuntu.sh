@@ -11,7 +11,7 @@ sudo -v
 
 # Update package lists
 sudo apt update
-sudo apt install vim libevent-dev yacc ncurses-dev build-essential bison pkg-config exa stow zsh -y
+sudo apt install bat vim libevent-dev yacc ncurses-dev build-essential bison pkg-config exa stow zsh -y
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 #
@@ -73,5 +73,8 @@ make && sudo make install
 # Clean up
 rm -rf \$INSTALLDIR
 "
+rm $HOME/.config/tmux/plugins/tmuxifier/templates/*
+ln -s $HOME/.config/tmux/templates/* $HOME/.config/tmux/plugins/tmuxifier/templates
+
 chsh -s /bin/zsh
 zsh
