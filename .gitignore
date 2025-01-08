@@ -1,0 +1,5 @@
+stow/scripts/.local/bin
+stow/scripts/.local/kitty.app
+stow/scripts/.local/lib*
+stow/scripts/.local/share
+stow/scripts/.local/state
