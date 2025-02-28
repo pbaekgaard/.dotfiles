@@ -1,0 +1,26 @@
+# theme = Monokai Pro Machine # Flavours: Spectrum, Machine, Octagon, Ristretto 
+theme = Everforest Dark - Hard
+#theme = Solarized Dark Higher Contrast
+background = #2f383c
+background-opacity = 0.90
+window-decoration = false
+window-padding-x = 4
+window-padding-y = 4
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = true
+
+# FONTS
+font-family = Monaspace Neon Frozen
+font-feature = 'ss01'
+font-feature = 'ss02'
+font-feature = 'ss03'
+font-feature = 'ss04'
+font-feature = 'ss05'
+font-feature = 'ss06'
+font-feature = 'ss07'
+font-feature = 'ss08'
+font-feature = 'ss09'
+font-feature = 'ss10'
+font-feature = 'liga'
+font-feature = 'calt'
