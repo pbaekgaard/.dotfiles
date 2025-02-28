@@ -3,3 +3,5 @@ stow/scripts/.local/kitty.app
 stow/scripts/.local/lib*
 stow/scripts/.local/share
 stow/scripts/.local/state
+tmux/.config/tmux/plugins
+tmux/.config/tmux/plugins
