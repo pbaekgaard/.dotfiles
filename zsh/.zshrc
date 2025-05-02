@@ -128,7 +128,6 @@ alias ls='exa'
 alias la='exa -la'
 alias lg='lazygit'
 alias cat='bat'
-alias ssh='kitten ssh'
 alias qnotes='nvim ~/Nextcloud/Notes/Quicknotes.norg'
 
 ##########################################################################
@@ -169,6 +168,7 @@ export PATH="$PATH:$(brew --prefix python@3.11)/libexec/bin"
 export NOTION_API_KEY="secret_lzFlqrbTtZJgIeiC29Y4wjqsdPBw9UnN4BKDqNILVnK"
 export PATH="$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin/"
 eval "$(tmuxifier init -)"
+eval "$(fzf --zsh)"
 export EDITOR="nvim"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts/"
 export TMUXIFIER_TEMPLATE_PATH="$HOME/.config/tmux/templates/"
@@ -182,4 +182,8 @@ export TMUXIFIER_TEMPLATE_PATH="$HOME/.config/tmux/templates/"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# export CC=/home/linuxbrew/.linuxbrew/opt/gcc/bin/gcc-14
+# export CXX=/home/linuxbrew/.linuxbrew/opt/gcc/bin/g++-14
+
 export PATH=$PATH:/home/pbk/.spicetify
+# export PATH="/home/linuxbrew/.linuxbrew/opt/llvm@16/bin:$PATH"
