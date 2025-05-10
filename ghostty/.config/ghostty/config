@@ -1,9 +1,9 @@
 # theme = Monokai Pro Machine # Flavours: Spectrum, Machine, Octagon, Ristretto 
-theme = ayu
+theme = ayu-fix
 #theme = Solarized Dark Higher Contrast
 # background = #323a3f
 # background = #192330
-# background-opacity = 0.85
+#background-opacity = 0.7
 window-decoration = false
 window-padding-x = 4
 window-padding-y = 4
