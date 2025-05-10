@@ -1,2 +1,2 @@
 # Github Monaspace
-paru -S --needed --noconfirm otf-monaspace
+paru -S otf-monaspace-nerd --needed --noconfirm
