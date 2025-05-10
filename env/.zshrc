@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/usr/share/oh-my-zsh/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -117,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 alias notes="nvim ~/Nextcloud/Obsidian/Notes/index.md"
 alias v='nvim'
 alias py='python3'
+alias icat='kitten icat'
 alias python='python3'
 alias pip='pip3'
 alias ls='exa'
@@ -159,7 +160,6 @@ export SUDO_EDITOR=nvim
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:$(brew --prefix python@3.11)/libexec/bin"
-export NOTION_API_KEY="secret_lzFlqrbTtZJgIeiC29Y4wjqsdPBw9UnN4BKDqNILVnK"
 export PATH="$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin/"
 eval "$(tmuxifier init -)"
 export EDITOR="nvim"
