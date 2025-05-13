@@ -1,5 +1,6 @@
 #!/bin/bash
 
+printf ""
 ~/.config/waybar/scripts/scrolling-mpris ~/.config/waybar/config.jsonc | \
 while IFS= read -r line; do
     # Calculate the length of the string

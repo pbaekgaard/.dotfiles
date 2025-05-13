@@ -1,3 +1,7 @@
 [submodule "env/.config/nvim"]
 	path = env/.config/nvim
 	url = git@github.com:pbaekgaard/kickstart.nvim
+
+[submodule "wallpapers"]
+	path = wallpapers
+	url = git@github.com:pbaekgaard/wallpapers

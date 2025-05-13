@@ -9,6 +9,8 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
+  /* background-color: #0F1419; */
+  /* background-color: #181825; */
   background-color: rgba(0, 0, 0, 0.0);
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -18,23 +20,24 @@ window#waybar {
   padding: 0.3rem 0.6rem;
   margin: 0.4rem 0.25rem;
   border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
-  color: #a6e3a1; /* Green */
+  /* background-color: #181825; */
+  background-color: rgba(15, 20, 25, 0.75);
+  color: #B8CC52;
 }
 
 #workspaces button:hover {
-  color: #cdd6f4; /* Lavender */
-  background-color: #585b70; /* Overlay2 */
+  color: #FFF;
+  background-color: #cdd6f4;
 }
 
 #workspaces button.active {
-  background-color: #1e1e2e; /* Mantle */
-  color: #f9e2af; /* Yellow */
+  background-color: #0F1419;
+  color: #F29718;
 }
 
 #workspaces button.urgent {
-  background-color: #1e1e2e; /* Mantle */
-  color: #f38ba8; /* Red */
+  background-color: #0F1419;
+  color: #F54D27;
 }
 
 #clock,
@@ -53,17 +56,17 @@ window#waybar {
 #mpris {
   padding: 0;
   margin: 0.4rem 0.25rem;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  background-color: rgba(15, 20, 25, 0.75);
   border-radius: 6px;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
 
 #battery.warning {
-  color: #f9e2af; /* Yellow */
+  color: #F29718;
 }
 #battery.critical {
-    color: #f38ba8; /* Red */
+    color: #F54D27;
 }
 
 #network {
@@ -72,7 +75,7 @@ window#waybar {
   border-radius: 6px;
   padding-right: 0.75rem;
   padding-left: 0.5rem;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  background-color: rgba(15, 20, 25, 0.75);
 }
 #custom-power {
   padding: 0.3rem 0.6rem;
@@ -80,14 +83,14 @@ window#waybar {
   border-radius: 6px;
   padding-right: 0.75rem;
   padding-left: 0.5rem;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  background-color: rgba(15, 20, 25, 0.75);
 }
 
 #tray {
   padding: 0;
   margin: 0.4rem 0.25rem;
   border-radius: 6px;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  background-color: rgba(15, 20, 25, 0.75);
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
@@ -97,39 +100,39 @@ window#waybar {
   border-radius: 6px;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  background-color: rgba(15, 20, 25, 0.75);
 }
 #custom-notification{
   padding-right: 0.8rem;
   padding-left: 0.5rem;
 }
 #backlight {
-  color: #fab387; /* Peach */
+  color: #FFB454;
 }
 #custom-waybar-scrolling-mpris.Playing{
-  color: #a6e3a1; /* Green */
+  color: #a6e3a1;
 }
 
 #mpris.playing {
-  color: #a6e3a1; /* Green */
+  color: #a6e3a1;
 }
 #memory.low {
-  color: #a6e3a1; /* Green for ≤10GB */
+  color: #B8CC52; /* Green for ≤10GB */
 }
 #memory.medium {
-  color: #f9e2af; /* Yellow for >10GB to ≤14GB */
+  color: #F29718; /* Orange for >10GB to ≤14GB */
 }
 #memory.high {
-  color: #f38ba8; /* Red for >14GB */
+  color: #F54D27; /* Red for >14GB */
 }
 
 #mpris.paused {
-  color: #9399b2; /* Overlay0 */
+  color: #9399b2;
 }
 
 #custom-sep {
   padding: 0px;
-  color: #585b70; /* Overlay2 */
+  color: #585b70;
 }
 
 window#waybar.empty #window {
@@ -137,39 +140,39 @@ window#waybar.empty #window {
 }
 
 #cpu {
-  color: #94e2d5; /* Teal */
+  color: #94e2d5;
 }
 
 #clock {
-  color: #a6e3a1; /* Green */
+  color: #B8CC52;
 }
 
 #clock.simpleclock {
-  color: #89b4fa; /* Blue */
+  color: #89b4fa;
 }
 
 #window {
-  color: #cdd6f4; /* Lavender */
+  color: #cdd6f4;
 }
 
 #pulseaudio {
-  color: #74c7ec; /* Sapphire */
+  color: #59C2FF;
 }
 
 #pulseaudio.muted {
-  color: #f38ba8; /* Red */
+  color: #F54D27;
 }
 
 #custom-logo {
-  color: #89b4fa; /* Blue */
+  color: #89b4fa;
 }
 
 #custom-power {
-  color: #f38ba8; /* Red */
+  color: #F54D27;
   padding-left: 0.7rem;
 }
 
 tooltip {
-  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
-  border: 2px solid #f9e2af; /* Yellow */
+  background-color: rgba(15, 20, 25, 0.75);
+  border: 2px solid #F29718;
 }

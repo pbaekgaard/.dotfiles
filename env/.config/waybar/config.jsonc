@@ -13,7 +13,6 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
-    "memory",
     "backlight",
     "pulseaudio",
     "bluetooth",
@@ -30,7 +29,7 @@
       "icons": {
 	  "Paused": "",
 	  "Playing": "",
-	  "Stopped": "■",
+	  "Stopped": "",
       },
       "on-click": "playerctl -p spotify play-pause",
       "length": 35,
