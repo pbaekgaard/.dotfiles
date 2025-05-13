@@ -20,7 +20,6 @@
     "tray",
     "custom/notification",
     "custom/keyboard_layout",
-    "network"
   ],
   "custom/spotify": {
     "format": "  {}",
@@ -95,15 +94,26 @@
         "high": 90
     }
 },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "  muted",
-    "format-icons": {
-      "headphone": "",
-      "default": [" ", " ", " "],
-    },
-    "on-click": "pavucontrol",
-  },
+"pulseaudio": {
+	"format": "{volume}% {icon}\u202F",
+	"format-bluetooth": "{volume}% {icon}\u202F",
+	"format-muted": "\u202F",
+	"format-icons": {
+		"alsa_output.pci-0000_00_1f.3.analog-stereo": "\u202F",
+		"alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "\u202F",
+		"headphones": "\u202F",
+		"handsfree": "\u202F",
+		"headset": "\u202F",
+		"phone": "\u202F",
+		"phone-muted": "\u202F",
+		"portable": "\u202F",
+		"car": "\u202F",
+		"default": ["\u202F", "\u202F"]
+	},
+	"reverse-scrolling": true,
+	"scroll-step": 1,
+	"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+},
   "custom/sep": {
     "format": "|",
     "tooltip": false,
@@ -155,7 +165,7 @@
 	"tooltip-format-ethernet": "{ifname} \u202F",
 	"tooltip-format-disconnected": "Disconnected",
 	"tooltip-format-disabled": "Disabled",
-	"on-click": "$HOME/.config/hypr/scripts/rofi-wifi.sh",
+	"on-click": "$HOME/.config/rofi/scripts/network.sh",
 	"max-length": 50
 }
 }
