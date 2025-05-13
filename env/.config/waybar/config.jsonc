@@ -7,15 +7,20 @@
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/spotify",
+  ],
   "modules-center": ["clock"],
   "modules-right": [
-    "mpris",
     "memory",
+    "backlight",
     "pulseaudio",
+    "battery",
     "tray",
     "custom/notification",
-    "custom/power",
+    "custom/keyboard_layout",
+    "network"
   ],
   "custom/spotify": {
     "format": "  {}",
@@ -30,6 +35,7 @@
     "dynamic-order": ["artist", "title"],
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon}<i>{dynamic}</i>",
+    "max-length": 50,
     "status-icons": {
       "paused": " ",
     },
@@ -47,6 +53,11 @@
   "hyprland/window": {
     "format": "{title}",
   },
+"backlight": {
+	"device": "intel_backlight",
+	"format": "{percent}%\u202F{icon}",
+	"format-icons": ["", "", "", "", "", "", "", "", ""]
+},
   "tray": {
     "show-passive-items": true,
     "spacing": 10,
@@ -61,9 +72,9 @@
       "format": {
         "days": "<span weight='normal'>{}</span>",
         "months": "<span color='#cdd6f4'><b>{}</b></span>",
-        "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
-        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+        "today": "<span color='#F54D27' weight='700'><u>{}</u></span>",
+        "weekdays": "<span color='#F29718'><b>{}</b></span>",
+        "weeks": "<span color='#B8CC52'><b>W{}</b></span>",
       },
       "mode": "month",
       "mode-mon-col": 1,
@@ -76,9 +87,14 @@
     "tooltip": true,
     "interval": 1,
   },
-  "memory": {
-    "format": "{used:0.1f}Gi",
-  },
+"memory": {
+    "format": "{used:0.1f}/{total:0.1f}GB",
+    "states": {
+        "low": 0,
+        "medium": 60,
+        "high": 90
+    }
+},
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "  muted",
@@ -94,8 +110,16 @@
   },
   "custom/power": {
     "tooltip": false,
-    "on-click": "wlogout -p layer-shell &",
+    "on-click": "hyprlock",
     "format": "",
+  },
+
+  "custom/keyboard_layout": {
+    "exec": "~/.config/hypr/scripts/keyboard_util.sh --get",
+    "interval": 1,
+    "format": "{}",
+    "on-click": "$HOME/.config/hypr/scripts/keyboard_util.sh --toggle",
+    "tooltip": false
   },
   "custom/notification": {
     "escape": true,
@@ -110,4 +134,28 @@
     "return-type": "json",
     "tooltip": false,
   },
+"battery": {
+	"interval": 60,
+	"states": {
+		"warning": 30,
+		"critical": 15
+	},
+	"format": "{capacity}% {icon} ",
+	"format-icons": ["", "", "", "", ""],
+	"max-length": 25
+},
+"network": {
+	"format": "{ifname}",
+	"format-wifi": "\u202F",
+	"format-ethernet": "\u202F",
+	"format-disconnected": "\u202F",
+	"format-disabled": "\u202F",
+	"tooltip-format": "{ifname}",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) \u202F",
+	"tooltip-format-ethernet": "{ifname} \u202F",
+	"tooltip-format-disconnected": "Disconnected",
+	"tooltip-format-disabled": "Disabled",
+	"on-click": "$HOME/.config/hypr/scripts/rofi-wifi.sh",
+	"max-length": 50
+}
 }

@@ -10,10 +10,10 @@ git clone https://github.com/jimeh/tmuxifier.git $HOME/.config/tmux/plugins/tmux
 # Neovim Language Dependencies
 ## GoLang
 sudo pacman -S --needed --noconfirm go
-## Lua
 
-## Node
+# Node
 paru -S --needed --noconfirm nodejs npm
 
-## Bun
-curl -fsSL https://bun.sh/install | bash
+# Python
+paru -S --needed --noconfirm poetry python-httpx python-pip
+

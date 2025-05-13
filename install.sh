@@ -23,6 +23,9 @@ echo "Copying dotfiles..."
 cp -r ./env/.local $HOME
 cp -r ./env/.config $HOME
 cp -r ./env/.zshrc $HOME/.zshrc
+rm -rf ~/.config/nvim
+ln -s $HOME/.dotfiles/env/.config/nvim $HOME/.config/nvim
+
 
 # If just doing config, exit here
 if [ "$JUST_CONFIG" = true ]; then
@@ -39,8 +42,8 @@ sudo reflector \
   --latest 20 \
   --sort rate \
   --save /etc/pacman.d/mirrorlist
-sudo pacman -Syu
-sudo pacman -S --needed --noconfirm wl-clipboard
+sudo pacman -Syy && sudo pacman -Syu
+sudo pacman -S --needed --noconfirm wl-clipboard brightnessctl
 
 # Install PARU
 sudo pacman -S --needed base-devel --noconfirm
