@@ -35,6 +35,10 @@ if [ -z "$theme" ]; then
   exit 1
 fi
 
+if [ "$theme" = "$current_theme" ]; then
+    exit 1
+fi
+
 # Update the current theme in the [settings] section
 sed -i "s/^current=.*/current=$theme/g" "$CONFIG_FILE"
 
@@ -43,6 +47,7 @@ wallpaper=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/wallpape
 nvim_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/nvim/{print $2; exit}' "$CONFIG_FILE")
 ghostty_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/ghostty/{print $2; exit}' "$CONFIG_FILE")
 waybar_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/waybar/{print $2; exit}' "$CONFIG_FILE")
+
 
 hyprland_color=$(awk -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
