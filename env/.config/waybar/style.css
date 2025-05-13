@@ -42,8 +42,10 @@ window#waybar {
 
 #clock,
 #network,
+#bluetooth,
 #pulseaudio,
 #custom-logo,
+#custom-waybar-scrolling-mpris,
 #custom-spotify,
 #custom-notification,
 #backlight,
@@ -106,6 +108,9 @@ window#waybar {
 }
 #backlight {
   color: #FFB454;
+}
+#custom-waybar-scrolling-mpris.Playing{
+  color: #a6e3a1;
 }
 
 #mpris.playing {

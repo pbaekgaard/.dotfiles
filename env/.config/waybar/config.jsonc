@@ -9,18 +9,32 @@
   "fixed-center": true,
   "modules-left": [
     "hyprland/workspaces",
-    "custom/spotify",
+    "custom/waybar-scrolling-mpris",
   ],
   "modules-center": ["clock"],
   "modules-right": [
     "memory",
     "backlight",
     "pulseaudio",
+    "bluetooth",
     "battery",
     "tray",
     "custom/notification",
     "custom/keyboard_layout",
   ],
+  "custom/waybar-scrolling-mpris": {
+      "format": "{}",
+      "return-type": "json",
+      "display-format": "{icon}{artist} - {title}",
+      "exec": "~/.config/waybar/scripts/wrapper.sh",
+      "icons": {
+	  "Paused": "",
+	  "Playing": "",
+	  "Stopped": "■",
+      },
+      "on-click": "playerctl -p spotify play-pause",
+      "length": 35,
+  },
   "custom/spotify": {
     "format": "  {}",
     "return-type": "json",
@@ -167,5 +181,16 @@
 	"tooltip-format-disabled": "Disabled",
 	"on-click": "$HOME/.config/rofi/scripts/network.sh",
 	"max-length": 50
+},
+"bluetooth": {
+	"format": " {status}",
+	"format-connected": " {device_alias}",
+	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	"on-click": "blueman-manager"
 }
 }
