@@ -67,7 +67,7 @@
   },
 "backlight": {
 	"device": "intel_backlight",
-	"format": "{percent}%\u202F{icon}",
+	"format": "{icon}\u202F{percent}%",
 	"format-icons": ["", "", "", "", "", "", "", "", ""]
 },
   "tray": {
@@ -108,7 +108,7 @@
     }
 },
 "pulseaudio": {
-	"format": "{volume}% {icon}\u202F",
+	"format": "{icon}\u202F{volume}%",
 	"format-bluetooth": "{volume}% {icon}\u202F",
 	"format-muted": "\u202F",
 	"format-icons": {

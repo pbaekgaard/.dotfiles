@@ -22,7 +22,7 @@ window#waybar {
   border-radius: 6px;
   /* background-color: #181825; */
   background-color: rgba(15, 20, 25, 0.75);
-  color: #B8CC52;
+  color: #F29718;
 }
 
 #workspaces button:hover {
@@ -32,7 +32,7 @@ window#waybar {
 
 #workspaces button.active {
   background-color: #0F1419;
-  color: #F29718;
+  color: #B8CC52;
 }
 
 #workspaces button.urgent {
@@ -71,6 +71,9 @@ window#waybar {
 }
 #battery.critical {
     color: #F54D27;
+}
+#battery {
+  color: #B8CC52;
 }
 
 #battery.charging {
@@ -119,6 +122,10 @@ window#waybar {
 }
 #custom-waybar-scrolling-mpris.Playing{
   color: #a6e3a1;
+}
+
+#custom-waybar-scrolling-mpris.Paused{
+  color: #FFB454;
 }
 
 #mpris.playing {
