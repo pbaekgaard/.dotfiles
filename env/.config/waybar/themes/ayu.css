@@ -62,11 +62,19 @@ window#waybar {
   padding-left: 0.5rem;
 }
 
+#bluetooth {
+  color: #59C2FF;
+}
+
 #battery.warning {
   color: #F29718;
 }
 #battery.critical {
     color: #F54D27;
+}
+
+#battery.charging {
+  color: #B8CC52;
 }
 
 #network {
@@ -148,7 +156,7 @@ window#waybar.empty #window {
 }
 
 #clock.simpleclock {
-  color: #89b4fa;
+  color: #59C2FF;
 }
 
 #window {
@@ -164,7 +172,7 @@ window#waybar.empty #window {
 }
 
 #custom-logo {
-  color: #89b4fa;
+  color: #59C2FF;
 }
 
 #custom-power {

@@ -43,11 +43,48 @@ fi
 sed -i "s/^current=.*/current=$theme/g" "$CONFIG_FILE"
 
 # Read values for the selected theme from the config
-wallpaper=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/wallpaper/{gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2; exit}' "$CONFIG_FILE")
 nvim_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/nvim/{print $2; exit}' "$CONFIG_FILE")
 ghostty_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/ghostty/{print $2; exit}' "$CONFIG_FILE")
 waybar_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/waybar/{print $2; exit}' "$CONFIG_FILE")
+tmux_theme=$(awk -F= -v theme="$theme" '
+  $0 == "[" theme "]" { in_theme = 1; next }
+  /^\[.*\]/ { in_theme = 0 }
+  in_theme && $1 == "tmux" {
+    gsub(/^[ \t]+|[ \t]+$/, "", $2);
+    print $2;
+    exit
+  }
+' "$CONFIG_FILE")
 
+# Try to get wallpaper from config
+wallpaper=$(awk -F= -v theme="$theme" '
+  $0 == "[" theme "]" { in_theme = 1; next }
+  /^\[.*\]/ { in_theme = 0 }
+  in_theme && $1 == "wallpaper" {
+    gsub(/^[ \t]+|[ \t]+$/, "", $2);
+    print $2;
+    exit
+  }
+' "$CONFIG_FILE")
+
+# Expand ~ if present
+wallpaper=$(echo "$wallpaper" | sed "s|~|$HOME|")
+
+# If wallpaper is missing, empty, or invalid, fall back to a random one from the base theme's folder
+if [ -z "$wallpaper" ] || [ ! -f "$wallpaper" ]; then
+    echo "Wallpaper not specified or invalid for theme '$theme'. Falling back to random image from '$theme_base'."
+    wallpaper_dir="$HOME/wallpapers/$theme_base"
+    if [ ! -d "$wallpaper_dir" ]; then
+        echo "Error: Wallpaper folder '$wallpaper_dir' does not exist."
+        exit 1
+    fi
+
+    wallpaper=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
+    if [ -z "$wallpaper" ]; then
+        echo "Error: No image files found in '$wallpaper_dir'."
+        exit 1
+    fi
+fi
 
 hyprland_color=$(awk -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
@@ -59,16 +96,11 @@ hyprland_color=$(awk -v theme="$theme" '
   }
 ' "$CONFIG_FILE")
 hyprland_color="${hyprland_color#\#}aa"
-# Change hyprland active color
-sed -i "s/col.active_border .*/col.active_border = rgba\($hyprland_color\)/g" ~/.config/hypr/hyprland.conf
-# Change wallpaper using swww with a wipe transition
-echo "wallpaper= $wallpaper"
-wallpaper=$(echo "$wallpaper" | sed "s|~|$HOME|")
-if [ ! -f "$wallpaper" ]; then
-    echo "Error: Wallpaper file '$wallpaper' does not exist."
-    exit 1
-fi
-swww img "$wallpaper" --transition-type=outer --transition-duration=2 --transition-pos=top-right
+# Extract base theme name before first dash (e.g., "catppuccin" from "catppuccin-macchiato")
+theme_base=$(echo "$theme" | cut -d'-' -f1)
+
+echo "Using wallpaper: $wallpaper"
+swww img "$wallpaper" --transition-type=outer --transition-duration=2 --transition-pos=top-right &
 
 # Change Neovim theme
 sed -i "s/vim.cmd.colorscheme .*/vim.cmd.colorscheme \"$nvim_theme\"/g" ~/.config/nvim/init.lua
@@ -76,13 +108,23 @@ for server in /tmp/themelistener*; do
     if [ -e "$server" ]; then
         nvim --server "$server" --remote-send ":colorscheme $nvim_theme<CR>"
     fi
-done
+done &
+
+# Update the tmux.conf to use the selected theme
+sed -i "s|^source-file \$HOME/.config/tmux/themes/.*|source-file \$HOME/.config/tmux/themes/$tmux_theme.conf|" "$HOME/.config/tmux/tmux.conf"
+if tmux has-session 2>/dev/null; then
+  tmux source-file "$HOME/.config/tmux/tmux.conf"
+fi &
 
 # Change Ghostty theme
-sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config
+sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 
 # Change Waybar theme
-cp "$HOME/.config/waybar/themes/$waybar_theme.css" ~/.config/waybar/style.css
+rm $HOME/.config/waybar/style.css
+ln -s "$HOME/.config/waybar/themes/$waybar_theme.css" $HOME/.config/waybar/style.css &
 
 # Reload Waybar to apply the changes
-pkill waybar; hyprctl dispatch exec waybar
+pkill waybar; hyprctl dispatch exec waybar &
+
+# Wait for all background processes to complete before finishing the script
+wait

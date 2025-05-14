@@ -59,6 +59,8 @@ rm -rf paru
 paru -S --needed --noconfirm exa zoxide waybar fzf
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# hyprland stuff
+sudo pacman -S hypridle hyprshot hyprlock --needed --confirm
 
 ./fonts/monaspace.sh
 ./applications/browser.sh

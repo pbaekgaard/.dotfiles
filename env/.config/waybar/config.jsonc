@@ -158,15 +158,19 @@
     "tooltip": false,
   },
 "battery": {
-	"interval": 60,
-	"states": {
-		"warning": 30,
-		"critical": 15
-	},
-	"format": "{capacity}% {icon} ",
-	"format-icons": ["", "", "", "", ""],
-	"max-length": 25
-},
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span> {capacity}%",
+        "format-full": "{capacity}%",
+        "interval": 2,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    },
 "network": {
 	"format": "{ifname}",
 	"format-wifi": "\u202F",

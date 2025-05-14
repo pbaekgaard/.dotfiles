@@ -59,11 +59,19 @@ window#waybar {
   padding-left: 0.5rem;
 }
 
+#bluetooth {
+  color: #89b4fa; /* Blue */
+}
+
 #battery.warning {
   color: #f9e2af; /* Yellow */
 }
 #battery.critical {
     color: #f38ba8; /* Red */
+}
+
+#battery.charging {
+  color: #a6e3a1; /* Green */
 }
 
 #network {
