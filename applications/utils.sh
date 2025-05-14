@@ -19,3 +19,7 @@ echo "Cleaning up..."
 rm -rf /tmp/PhotoGIMP-linux/ "$PHOTO_GIMP_ZIP"
 
 echo "PhotoGIMP installed successfully!"
+
+
+# PDF Reader (Zathura)
+paru -S --needed --noconfirm zathura
