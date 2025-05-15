@@ -23,3 +23,10 @@ echo "PhotoGIMP installed successfully!"
 
 # PDF Reader (Zathura)
 paru -S --needed --noconfirm zathura zathura-pdf-poppler
+
+
+# wallpaper
+paru -S --needed --noconfirm swww
+
+# multimonitor stuff
+paru -S --needed --noconfirm kanshi
