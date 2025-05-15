@@ -46,6 +46,8 @@ sed -i "s/^current=.*/current=$theme/g" "$CONFIG_FILE"
 nvim_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/nvim/{print $2; exit}' "$CONFIG_FILE")
 ghostty_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/ghostty/{print $2; exit}' "$CONFIG_FILE")
 waybar_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/waybar/{print $2; exit}' "$CONFIG_FILE")
+spotify_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/spotify/{print $2; exit}' "$CONFIG_FILE")
+IFS=',' read -r spotify_theme spotify_style <<< "$spotify_theme"
 tmux_theme=$(awk -F= -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
   /^\[.*\]/ { in_theme = 0 }
@@ -55,6 +57,8 @@ tmux_theme=$(awk -F= -v theme="$theme" '
     exit
   }
 ' "$CONFIG_FILE")
+
+swaync_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/swaync/{print $2; exit}' "$CONFIG_FILE")
 
 # Try to get wallpaper from config
 wallpaper=$(awk -F= -v theme="$theme" '
@@ -120,8 +124,14 @@ fi &
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 
 # Change Waybar theme
-rm $HOME/.config/waybar/style.css
-ln -s "$HOME/.config/waybar/themes/$waybar_theme.css" $HOME/.config/waybar/style.css &
+ln -s "$HOME/.config/waybar/themes/$waybar_theme.css" $HOME/.config/waybar/style.css -f &
+
+# Change sway notification center theme
+ln -s "$HOME/.config/swaync/themes/$swaync_theme.css" $HOME/.config/swaync/style.css -f &
+swaync-client -rs &
+
+# Change spotify
+spicetify config current_theme $spotify_theme & spicetify config color_scheme $spotify_style; spicetify apply
 
 # Reload Waybar to apply the changes
 pkill waybar; hyprctl dispatch exec waybar &

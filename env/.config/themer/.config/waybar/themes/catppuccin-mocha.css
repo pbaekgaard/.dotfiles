@@ -1,0 +1,183 @@
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: "MonaspiceNe NF";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: rgba(0, 0, 0, 0.0);
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  color: #a6e3a1; /* Green */
+}
+
+#workspaces button:hover {
+  color: #cdd6f4; /* Lavender */
+  background-color: #585b70; /* Overlay2 */
+}
+
+#workspaces button.active {
+  background-color: #1e1e2e; /* Mantle */
+  color: #f9e2af; /* Yellow */
+}
+
+#workspaces button.urgent {
+  background-color: #1e1e2e; /* Mantle */
+  color: #f38ba8; /* Red */
+}
+
+#clock,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-logo,
+#custom-waybar-scrolling-mpris,
+#custom-spotify,
+#custom-notification,
+#backlight,
+#cpu,
+#memory,
+#window,
+#battery,
+#mpris {
+  padding: 0;
+  margin: 0.4rem 0.25rem;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  border-radius: 6px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+#bluetooth {
+  color: #89b4fa; /* Blue */
+}
+
+#battery.warning {
+  color: #f9e2af; /* Yellow */
+}
+#battery.critical {
+    color: #f38ba8; /* Red */
+}
+
+#battery.charging {
+  color: #a6e3a1; /* Green */
+}
+
+#network {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  padding-right: 0.75rem;
+  padding-left: 0.5rem;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+}
+#custom-power {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  padding-right: 0.75rem;
+  padding-left: 0.5rem;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+}
+
+#tray {
+  padding: 0;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+#custom-keyboard_layout {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+}
+#custom-notification{
+  padding-right: 0.8rem;
+  padding-left: 0.5rem;
+}
+#backlight {
+  color: #fab387; /* Peach */
+}
+#custom-waybar-scrolling-mpris.Playing{
+  color: #a6e3a1; /* Green */
+}
+
+#mpris.playing {
+  color: #a6e3a1; /* Green */
+}
+#memory.low {
+  color: #a6e3a1; /* Green for ≤10GB */
+}
+#memory.medium {
+  color: #f9e2af; /* Yellow for >10GB to ≤14GB */
+}
+#memory.high {
+  color: #f38ba8; /* Red for >14GB */
+}
+
+#mpris.paused {
+  color: #9399b2; /* Overlay0 */
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70; /* Overlay2 */
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  color: #94e2d5; /* Teal */
+}
+
+#clock {
+  color: #a6e3a1; /* Green */
+}
+
+#clock.simpleclock {
+  color: #89b4fa; /* Blue */
+}
+
+#window {
+  color: #cdd6f4; /* Lavender */
+}
+
+#pulseaudio {
+  color: #74c7ec; /* Sapphire */
+}
+
+#pulseaudio.muted {
+  color: #f38ba8; /* Red */
+}
+
+#custom-logo {
+  color: #89b4fa; /* Blue */
+}
+
+#custom-power {
+  color: #f38ba8; /* Red */
+  padding-left: 0.7rem;
+}
+
+tooltip {
+  background-color: rgba(30, 30, 46, 0.75); /* Surface0 */
+  border: 2px solid #f9e2af; /* Yellow */
+}

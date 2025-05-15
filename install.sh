@@ -62,7 +62,9 @@ paru -S --needed --noconfirm exa zoxide waybar fzf
 # hyprland stuff
 sudo pacman -S hypridle hyprshot hyprlock --needed --confirm
 
-./fonts/monaspace.sh
+./fonts/*.sh
 ./applications/browser.sh
 ./applications/terminal.sh
+./applications/utils.sh
+./applications/dev.sh
 cp ./wallpapers $HOME/wallpapers -r

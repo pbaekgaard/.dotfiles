@@ -18,8 +18,8 @@ profile grouproom_Extend_Left {
     }
     output $GROUPROOM enable position -3840,0
     exec hyprctl keyword monitor DP-1,preferred, auto, 1
-    exec swww query | grep eDP-1 | sed -n 's/.*image: //p' | xargs swww img --resize crop
-}
+    exec swww query | grep eDP-1 | sed -n 's/.*image: //p' | xargs swww img
+    }
 
 profile grouproom_Mirror {
     output $GROUPROOM enable

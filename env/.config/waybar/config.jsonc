@@ -1,6 +1,7 @@
 {
   "layer": "bottom",
   "position": "top",
+  "output": "eDP-1",
   "height": 40,
   "spacing": 2,
   "exclusive": true,
@@ -61,6 +62,7 @@
     "all-outputs": true,
     "disable-scroll": false,
     "active-only": false,
+    "ignore-workspaces": ["11"],
   },
   "hyprland/window": {
     "format": "{title}",
