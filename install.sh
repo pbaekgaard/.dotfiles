@@ -60,11 +60,12 @@ paru -S --needed --noconfirm exa zoxide waybar fzf
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # hyprland stuff
-sudo pacman -S hypridle hyprshot hyprlock --needed --confirm
+paru -S hypridle hyprshot hyprlock --needed --confirm
 
-./fonts/*.sh
-./applications/browser.sh
-./applications/terminal.sh
-./applications/utils.sh
-./applications/dev.sh
+for scripts in ./fonts/*.sh; do
+	[ -x "$script" ] && "$script"
+done
+for scripts in ./applications/*.sh; do
+	[ -x "$script" ] && "$script"
+done
 cp ./wallpapers $HOME/wallpapers -r

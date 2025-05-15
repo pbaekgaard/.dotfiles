@@ -9,6 +9,7 @@ PHOTO_GIMP_ZIP="/tmp/PhotoGIMP-linux.zip"
 curl -L -o "$PHOTO_GIMP_ZIP" https://github.com/Diolinux/PhotoGIMP/releases/latest/download/PhotoGIMP-linux.zip
 
 echo "Extracting PhotoGIMP..."
+sudo pacman -S unzip
 unzip -o "$PHOTO_GIMP_ZIP" -d /tmp/
 
 echo "Installing PhotoGIMP..."
@@ -30,3 +31,6 @@ paru -S --needed --noconfirm swww
 
 # multimonitor stuff
 paru -S --needed --noconfirm kanshi
+
+# rofi
+paru -S --needed --noconfirm rofi
