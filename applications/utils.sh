@@ -34,3 +34,11 @@ paru -S --needed --noconfirm kanshi
 
 # rofi
 paru -S --needed --noconfirm rofi
+
+# nautilus
+paru -S --needed --noconfirm nautilus
+
+
+# other
+paru -S --needed --noconfirm socat
+
