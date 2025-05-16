@@ -9,7 +9,7 @@ source $HOME/.local/scripts/tmux-sessionizer.zsh
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -178,12 +178,16 @@ export EDITOR="nvim"
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts/"
 export TMUXIFIER_TEMPLATE_PATH="$HOME/.config/tmux/templates/"
 
-nvim_random_listen() {
+
+if [ "$NVIM_IS_DEFINED" != true ]; then
+  nvim_random_listen() {
+    export NVIM_IS_DEFINED=true
     local random_number=$(od -An -N2 -i /dev/random | tr -d ' ')
     local server_name="/tmp/themelistener${random_number}"
     nvim --listen "$server_name" "$@"
-}
-alias nvim=nvim_random_listen
+  }
+  alias nvim=nvim_random_listen
+fi
 
 [ -f "/home/pbk/.ghcup/env" ] && . "/home/pbk/.ghcup/env" # ghcup-env
 

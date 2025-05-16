@@ -48,6 +48,8 @@ ghostty_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/ghos
 waybar_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/waybar/{print $2; exit}' "$CONFIG_FILE")
 spotify_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/spotify/{print $2; exit}' "$CONFIG_FILE")
 IFS=',' read -r spotify_theme spotify_style <<< "$spotify_theme"
+
+gtk_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/gtk/{print $2; exit}' "$CONFIG_FILE")
 tmux_theme=$(awk -F= -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
   /^\[.*\]/ { in_theme = 0 }
@@ -133,8 +135,26 @@ swaync-client -rs &
 # Change spotify
 spicetify config current_theme $spotify_theme & spicetify config color_scheme $spotify_style; spicetify apply
 
+# Set GTK Theme
+# gsettings
+gsettings set org.gnome.desktop.interface gtk-theme $gtk_theme
+gsettings set org.gnome.desktop.wm.preferences theme $gtk_theme
+
+# gtk 2.0
+sed -i -E 's/(gtk-theme-name=")(.*)(")/\1'$gtk_theme'\3/g' ~/.gtkrc-2.0
+
+# gtk 3.0
+sed -i -E 's/(gtk-theme-name=)(.*)/\1'$gtk_theme'/g' ~/.config/gtk-3.0/settings.ini
+
+# gtk 4.0
+rm -r ~/.config/gtk-4.0/*
+cp -r $HOME/.themes/$gtk_theme/gtk-4.0/* ~/.config/gtk-4.0/ || cp -r ~/.themes/$gtk_theme/gtk-4.0/* ~/.config/gtk-4.0/ || cp -r ~/.config/themes/gtk/$gtk_theme/gtk-4.0/* ~/.config/gtk-4.0/
+
+export GTK_THEME="$gtk_theme"
+hyprctl keyword env GTK_THEME,$gtk_theme
+
 # Reload Waybar to apply the changes
-pkill waybar; hyprctl dispatch exec waybar &
+pkill waybar; hyprctl reload & hyprctl dispatch exec waybar &
 
 # Wait for all background processes to complete before finishing the script
 wait
