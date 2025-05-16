@@ -3,12 +3,13 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="/usr/share/oh-my-zsh/"
+source $HOME/.local/scripts/tmux-sessionizer.zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,6 +117,8 @@ source $ZSH/oh-my-zsh.sh
 ##########################################################################
 alias notes="nvim ~/Nextcloud/Obsidian/Notes/index.md"
 alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias py='python3'
 alias icat='kitten icat'
 alias python='python3'
@@ -124,6 +127,14 @@ alias ls='exa'
 alias la='exa -la'
 alias lg='lazygit'
 alias qnotes='nvim ~/Nextcloud/Notes/Quicknotes.norg'
+dotcommit() {
+  (
+    cd ~/.dotfiles || return
+    git add .
+    git commit -m "dotcommit"
+    git push
+  )
+}
 
 ##########################################################################
 #
@@ -162,7 +173,17 @@ export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:$(brew --prefix python@3.11)/libexec/bin"
 export PATH="$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin/"
 eval "$(tmuxifier init -)"
+eval "$(fzf --zsh)"
 export EDITOR="nvim"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts/"
+export TMUXIFIER_TEMPLATE_PATH="$HOME/.config/tmux/templates/"
+
+nvim_random_listen() {
+    local random_number=$(od -An -N2 -i /dev/random | tr -d ' ')
+    local server_name="/tmp/themelistener${random_number}"
+    nvim --listen "$server_name" "$@"
+}
+alias nvim=nvim_random_listen
 
 [ -f "/home/pbk/.ghcup/env" ] && . "/home/pbk/.ghcup/env" # ghcup-env
 

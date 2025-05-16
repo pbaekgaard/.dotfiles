@@ -63,6 +63,14 @@ window#waybar {
   color: #89b4fa; /* Blue */
 }
 
+#bluetooth.disabled {
+  color: #f38ba8; /* Red */
+}
+
+#bluetooth.off {
+  color: #f38ba8; /* Red */
+}
+
 #battery.warning {
   color: #f9e2af; /* Yellow */
 }

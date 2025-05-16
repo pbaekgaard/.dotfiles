@@ -66,6 +66,18 @@ window#waybar {
   color: #59C2FF;
 }
 
+#bluetooth {
+  color: #59C2FF;
+}
+
+#bluetooth.disabled {
+    color: #F54D27;
+}
+
+#bluetooth.off {
+    color: #F54D27;
+}
+
 #battery.warning {
   color: #F29718;
 }
