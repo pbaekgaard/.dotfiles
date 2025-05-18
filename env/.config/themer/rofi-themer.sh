@@ -144,6 +144,8 @@ gsettings set org.gnome.desktop.wm.preferences theme $gtk_theme
 sed -i -E 's/(gtk-theme-name=")(.*)(")/\1'$gtk_theme'\3/g' ~/.gtkrc-2.0
 
 # gtk 3.0
+rm -r ~/.config/gtk-3.0/*
+cp -r $HOME/.themes/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/ || cp -r ~/.themes/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/ || cp -r ~/.config/themes/gtk/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/
 sed -i -E 's/(gtk-theme-name=)(.*)/\1'$gtk_theme'/g' ~/.config/gtk-3.0/settings.ini
 
 # gtk 4.0

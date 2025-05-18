@@ -32,5 +32,6 @@ fi
 
 # Append newline and contents of patch file
 sudo sh -c "echo '' >> \"$preloadjs\" && cat \"$patchfile\" >> \"$preloadjs\""
+sudo asar pack "$resourcefolder/app" "$resourcefolder/app.asar"
 
 echo "✅ preload.js patched successfully."

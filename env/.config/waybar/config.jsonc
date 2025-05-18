@@ -2,6 +2,7 @@
   "layer": "bottom",
   "position": "top",
   "output": "eDP-1",
+  "reload_style_on_change": true,
   "height": 40,
   "spacing": 2,
   "exclusive": true,

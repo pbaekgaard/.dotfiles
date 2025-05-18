@@ -37,6 +37,7 @@ paru -S --needed --noconfirm rofi
 
 # nautilus
 paru -S --needed --noconfirm nautilus
+xdg-mime default org.gnome.Nautilus.desktop inode/directory
 
 
 # other
