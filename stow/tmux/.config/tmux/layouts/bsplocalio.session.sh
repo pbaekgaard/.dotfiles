@@ -1,24 +1,27 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "~/school/ds/"
+# TYPE="school"
+TYPE="dev"
+session_folder_root="$HOME/$TYPE/bsplocalio"
+mkdir -p $session_folder_root
+
+session_root "$session_folder_root"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
-if initialize_session "ds"; then
+if initialize_session "bsplocalio"; then
 
   # Create a new window inline within session layout definition.
   new_window "nvim"
-  new_window "term"
-  new_window "exercises"
+  new_window "labgrid"
+  run_cmd "sdk"
+
 
   # Load a defined window layout.
   #load_window "example"
 
   # Select the default active window on session creation.
-  select_window 3
-  run_cmd "nvim README.md"
   select_window 1
-  run_cmd "nvim"
 
 fi
 
