@@ -17,3 +17,6 @@ paru -S --needed --noconfirm nodejs npm
 # Python
 paru -S --needed --noconfirm poetry python-httpx python-pip
 
+# Markdown
+sudo pacman -S --needed --noconfirm markdownlint
+

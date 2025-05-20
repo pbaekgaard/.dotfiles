@@ -4,3 +4,18 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = https://github.com/pbaekgaard/wallpapers
+[submodule "env/.config/tmux/plugins/tmux-ayu-theme"]
+	path = env/.config/tmux/plugins/tmux-ayu-theme
+	url = https://github.com/TechnicalDC/tmux-ayu-theme
+[submodule "env/.config/tmux/plugins/tmux-nova"]
+	path = env/.config/tmux/plugins/tmux-nova
+	url = https://github.com/o0th/tmux-nova
+[submodule "env/.config/tmux/plugins/tmux-sensible"]
+	path = env/.config/tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "env/.config/tmux/plugins/tmuxifier"]
+	path = env/.config/tmux/plugins/tmuxifier
+	url = https://github.com/jimeh/tmuxifier
+[submodule "env/.config/tmux/plugins/tpm"]
+	path = env/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

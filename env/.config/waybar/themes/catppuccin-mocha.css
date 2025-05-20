@@ -43,6 +43,7 @@ window#waybar {
 #pulseaudio,
 #custom-logo,
 #custom-waybar-scrolling-mpris,
+#custom-spotify2,
 #custom-spotify,
 #custom-notification,
 #backlight,
@@ -131,10 +132,12 @@ window#waybar {
   color: #fab387; /* Peach */
 }
 
+#custom-spotify2.Playing,
 #custom-waybar-scrolling-mpris.Playing {
   color: #a6e3a1; /* Green */
 }
 
+#custom-spotify2.Paused,
 #custom-waybar-scrolling-mpris.Paused {
   color: #b4befe; /* Mauve */
 }

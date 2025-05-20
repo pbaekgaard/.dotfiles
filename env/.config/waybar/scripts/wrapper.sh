@@ -1,29 +1,23 @@
 #!/bin/bash
 
-while true; do
-    ~/.config/waybar/scripts/scrolling-mpris ~/.config/waybar/config.jsonc | \
-    while IFS= read -r line; do
-        length=$(echo -n "$line" | wc -m)
-        echo "length: $length"
+~/.config/waybar/scripts/scroll_spotify_status.sh | \
+while IFS= read -r line; do
+    # Calculate the length of the string
 
-        if [ "$length" -lt 25 ]; then
-            text=$(echo -n "$line" | sed 's/[[:space:]]*$//')
-        else
-            text="$line"
-        fi
+    # If length is less than 34, remove trailing whitespace, otherwise keep it
+    text="$line"
 
-        if [[ "$text" == " "* ]]; then
-            status="Playing"
-        elif [[ "$text" == " "* ]]; then
-            status="Paused"
-        elif [[ "$text" == "■"* ]]; then
-            status="Stopped"
-        else
-            status="Unknown"
-        fi
+    # Detect status from icon
+    status=$(~/.config/waybar/scripts/get_spotify_status.sh --status)
 
-        printf '{ "text": "%s", "class": "%s" }\n' "$text" "$status"
-    done
-
-    sleep 1  # wait before retrying in case of crash or no Spotify
+    # Use printf to output the JSON with preserved or trimmed text
+    # if status="Off"
+    # printf ""
+    # else
+if [ "$status" = "Off" ]; then
+        echo "STATUS IS Off"
+        printf ''
+    else
+        printf '{"text": "%s", "class": "%s" }\n' "$text" "$status"
+    fi
 done

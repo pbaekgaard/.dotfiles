@@ -1,5 +1,5 @@
 # theme = Monokai Pro Machine # Flavours: Spectrum, Machine, Octagon, Ristretto 
-theme = ayu-fix
+theme = catppuccin-mocha
 #theme = Solarized Dark Higher Contrast
 # background = #323a3f
 # background = #192330

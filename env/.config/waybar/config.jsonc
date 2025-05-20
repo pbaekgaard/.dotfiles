@@ -11,7 +11,7 @@
   "fixed-center": true,
   "modules-left": [
     "hyprland/workspaces",
-    "custom/waybar-scrolling-mpris",
+    "custom/spotify2",
   ],
   "modules-center": ["clock"],
   "modules-right": [
@@ -43,6 +43,17 @@
     "on-click-right": "spotifatius toggle-liked",
     "on-click-middle": "playerctl -p spotify next",
     "exec": "spotifatius monitor",
+  },
+  "custom/spotify2": {
+    "format": "  {}",
+    "hide-empty-text": true,
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-middle": "playerctl -p spotify next",
+    "exec": "~/.config/waybar/scripts/wrapper.sh",
+    "align": 0,
+    "justify": "left",
+    "min-length": 30,
   },
   "mpris": {
     "player": "spotify",
