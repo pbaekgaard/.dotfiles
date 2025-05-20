@@ -104,6 +104,7 @@ hyprland_color=$(awk -v theme="$theme" '
   }
 ' "$CONFIG_FILE")
 hyprland_color="${hyprland_color#\#}aa"
+echo "setting hyprland color to: $hyprland_color"
 # Extract base theme name before first dash (e.g., "catppuccin" from "catppuccin-macchiato")
 theme_base=$(echo "$theme" | cut -d'-' -f1)
 
@@ -126,6 +127,7 @@ fi &
 
 # Change rofi theme
 sed -i "s/^[[:space:]]*selected-bg: .*/  selected-bg: $primary_color;/" ~/.config/rofi/config.rasi
+sed -i "s/^[[:space:]]*col.active_border = .*/    col.active_border =  rgba\($hyprland_color\)/" ~/.config/hypr/hyprland.conf
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 
