@@ -49,6 +49,8 @@ waybar_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/wayba
 spotify_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/spotify/{print $2; exit}' "$CONFIG_FILE")
 IFS=',' read -r spotify_theme spotify_style <<< "$spotify_theme"
 
+primary_color=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/primary_color/{print $2; exit}' "$CONFIG_FILE")
+
 gtk_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/gtk/{print $2; exit}' "$CONFIG_FILE")
 tmux_theme=$(awk -F= -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
@@ -122,6 +124,8 @@ if tmux has-session 2>/dev/null; then
   tmux source-file "$HOME/.config/tmux/tmux.conf"
 fi &
 
+# Change rofi theme
+sed -i "s/^[[:space:]]*selected-bg: .*/  selected-bg: $primary_color;/" ~/.config/rofi/config.rasi
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 

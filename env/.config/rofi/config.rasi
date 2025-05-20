@@ -14,11 +14,11 @@ configuration {
   fg: #dddfe3;
   font:                        "JetBrains Mono Nerd Font 18";
 
-  selected-bg: @fg;
+  selected-bg: #A6E3A1;
   selected-fg: @bg;
 
   // for windows
-  active: #a9b665;
+  active: #dddfe3;
   urgent: #fb4934;
 }
 
