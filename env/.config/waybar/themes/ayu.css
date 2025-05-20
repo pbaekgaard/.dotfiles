@@ -135,16 +135,16 @@ window#waybar {
 }
 #custom-spotify2.Playing,
 #custom-waybar-scrolling-mpris.Playing{
-  color: #a6e3a1;
+  color: #B8CC52;
 }
 
-#custom-spotify2.Playing,
+#custom-spotify2.Paused,
 #custom-waybar-scrolling-mpris.Paused{
   color: #FFB454;
 }
 
 #mpris.playing {
-  color: #a6e3a1;
+  color: #B8CC52;
 }
 #memory.low {
   color: #B8CC52; /* Green for ≤10GB */
