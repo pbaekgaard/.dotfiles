@@ -173,7 +173,7 @@
         "format": "{icon}\u202F {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
-        "format-charging": "<span font='Font Awesome 5 Free'></span> {capacity}%",
+        "format-charging": "\u202F {capacity}%",
         "format-full": "{capacity}%",
         "interval": 2,
         "states": {
