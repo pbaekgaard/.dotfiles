@@ -135,7 +135,7 @@ sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 ln -s "$HOME/.config/waybar/themes/$waybar_theme.css" $HOME/.config/waybar/style.css -f &
 
 # Change sway notification center theme
-ln -s "$HOME/.config/swaync/themes/$swaync_theme.css" $HOME/.config/swaync/style.css -f &
+ln -s "$HOME/.config/swaync/colors/$swaync_theme.css" $HOME/.config/swaync/colors.css -f &
 swaync-client -rs &
 
 # Change spotify

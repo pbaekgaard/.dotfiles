@@ -38,6 +38,7 @@
   },
   "widgets": [
     "label",
+    "buttons-grid",
     "mpris",
     "title",
     "dnd",
@@ -65,26 +66,15 @@
       "show-per-app": true
     },
     "buttons-grid": {
+      "position": "right",
       "actions": [
         {
-          "label": " ",
-          "command": "amixer set Master toggle"
-        },
-        {
-          "label": "",
-          "command": "amixer set Capture toggle"
-        },
-        {
-          "label": " ",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
+          "label": "󰷝 ",
+          "command": "~/.config/hypr/scripts/toggle_opacity.sh"
         },
         {
           "label": "󰏘",
-          "command": "nwg-look"
+          "command": "~/.config/themer/rofi-themer.sh"
         }
       ]
     }
