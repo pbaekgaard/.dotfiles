@@ -2,7 +2,7 @@
 
 configuration {
   modes: "window,drun,run,ssh";
-  font: "JetBrainsMono NF 18";
+  font: "CaskaydiaCoveNF 18";
   drun-display-format: "{name}";
 }
 
@@ -12,7 +12,7 @@ configuration {
   bgt: #0d101795;
   t: transparent;
   fg: #dddfe3;
-  font:                        "JetBrains Mono Nerd Font 18";
+  font: @font;
 
   selected-bg: #A6E3A1;
   selected-fg: @bg;
@@ -118,8 +118,9 @@ inputbar {
 textbox-prompt-colon {
     text-color:                  @fg;
     enabled:                     true;
+    font: "CaskaydiaCoveNF 18";
     expand:                      false;
-    str:                         "";
+    str:                         " ";
 }
 entry {
     enabled:                     true;

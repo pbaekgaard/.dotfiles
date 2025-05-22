@@ -82,7 +82,7 @@
   },
 "backlight": {
 	"device": "intel_backlight",
-	"format": "{icon}\u202F{percent}%",
+	"format": "{icon}\u202F {percent}%",
 	"format-icons": ["", "", "", "", "", "", "", "", ""]
 },
 "tray": {
@@ -129,7 +129,7 @@
     }
 },
 "pulseaudio": {
-	"format": "{icon}\u202F{volume}%",
+	"format": "{icon}\u202F {volume}%",
 	"format-bluetooth": "{icon}\u202F {volume}%",
 	"format-muted": "\u202F",
 	"format-icons": {
@@ -170,7 +170,7 @@
     "tooltip": false,
   },
 "battery": {
-        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span> {capacity}%",
+        "format": "{icon}\u202F {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
         "format-charging": "<span font='Font Awesome 5 Free'></span> {capacity}%",
