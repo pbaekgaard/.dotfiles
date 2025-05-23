@@ -137,7 +137,9 @@
 	},
 	"reverse-scrolling": true,
 	"scroll-step": 1,
-	"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	"on-click": "hyprctl dispatch exec '[float; size 859 501; move 1370 50] pavucontrol'",
+	"on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 },
   "custom/sep": {
     "format": "|",
