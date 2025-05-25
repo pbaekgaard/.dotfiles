@@ -9,6 +9,14 @@ output "Vestel Elektronik Sanayi ve Ticaret A. S. 49UHD_LCD_TV Unknown" {
     alias $GROUPROOM
 }
 
+output "Crestron Electronics Inc. Crestron Unknown" {
+    mode 1920x1080@60
+    scale 1
+    position 0,0
+    alias $MOVIEROOM
+}
+
+
 profile grouproom_Extend_Left {
     output eDP-1 {
         enable
@@ -23,6 +31,12 @@ profile grouproom_Extend_Left {
 
 profile grouproom_Mirror {
     output $GROUPROOM enable
+    output eDP-1 enable
+    exec hyprctl keyword monitor DP-1,preferred, auto, 1, mirror, eDP-1
+}
+
+profile movieroom_Mirror {
+    output $MOVIEROOM enable
     output eDP-1 enable
     exec hyprctl keyword monitor DP-1,preferred, auto, 1, mirror, eDP-1
 }
