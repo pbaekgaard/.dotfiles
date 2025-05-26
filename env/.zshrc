@@ -70,7 +70,6 @@ dotcommit() {
     ~/.config/wlogout
     ~/.config/wofi
     ~/.config/zathura
-    ~/.dotfiles/env/.config
   )
 
   # Build rsync command

@@ -1,5 +1,0 @@
-BasedOnStyle: LLVM
-IndentWidth: 4
-TabStop: 4
-ShiftWidth: 4
-IndentAccesModifiers: true 
