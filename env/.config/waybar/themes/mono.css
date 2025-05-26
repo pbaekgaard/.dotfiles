@@ -30,7 +30,7 @@ button:hover {
 #customm-keyboard_layout,
 #custom-notification,
 #custom-spotify2 {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
@@ -48,9 +48,10 @@ button:hover {
   color: #f28779;
 }
 
+#custom-keyboard_layout,
 #custom-spotify2.Paused,
 #custom-waybar-scrolling-mpris.Paused {
-  color: #cccac2;
+	color: #C3B79F;
 }
 
 #workspaces button.active {
@@ -59,36 +60,36 @@ button:hover {
 }
 
 #clock {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 3;
 }
 
 #tray {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
 #battery {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
 #pulseaudio {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
 #backlight {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
 #bluetooth {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 20px;
 }
 
 #network {
-	color: #cccac2;
+	color: #C3B79F;
 	padding-right: 5;
 }

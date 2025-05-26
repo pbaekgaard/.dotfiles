@@ -103,6 +103,26 @@ hyprland_color=$(awk -v theme="$theme" '
     exit
   }
 ' "$CONFIG_FILE")
+
+hyprland_rounding=$(awk -v theme="$theme" '
+  $0 == "[" theme "]" { in_theme = 1; next }
+  /^\[.*\]/ { in_theme = 0 }
+  in_theme && /^rounding=/ {
+    split($0, a, "=")
+    print a[2]
+    exit
+  }
+' "$CONFIG_FILE")
+
+hyprland_gaps=$(awk -v theme="$theme" '
+  $0 == "[" theme "]" { in_theme = 1; next }
+  /^\[.*\]/ { in_theme = 0 }
+  in_theme && /^gaps=/ {
+    split($0, a, "=")
+    print a[2]
+    exit
+  }
+' "$CONFIG_FILE")
 hyprland_color="${hyprland_color#\#}aa"
 echo "setting hyprland color to: $hyprland_color"
 # Extract base theme name before first dash (e.g., "catppuccin" from "catppuccin-macchiato")
@@ -110,6 +130,7 @@ theme_base=$(echo "$theme" | cut -d'-' -f1)
 
 echo "Using wallpaper: $wallpaper"
 swww img "$wallpaper" --transition-type=outer --transition-duration=2 --transition-pos=top-right &
+ln -s $wallpaper $HOME/.config/wall.png -f
 
 # Change Neovim theme
 sed -i "s/vim.cmd.colorscheme .*/vim.cmd.colorscheme \"$nvim_theme\"/g" ~/.config/nvim/init.lua
@@ -127,7 +148,11 @@ fi &
 
 # Change rofi theme
 sed -i "s/^[[:space:]]*selected-bg: .*/  selected-bg: $primary_color;/" ~/.config/rofi/config.rasi
+# Change hyprland settings
 sed -i "s/^[[:space:]]*col.active_border = .*/    col.active_border =  rgba\($hyprland_color\)/" ~/.config/hypr/hyprland.conf
+sed -i "s/^[[:space:]]*rounding = .*/    rounding =  $hyprland_rounding/" ~/.config/hypr/hyprland.conf
+sed -i "s/^[[:space:]]*gaps_in = .*/    gaps_in =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
+sed -i "s/^[[:space:]]*gaps_out = .*/    gaps_out =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 

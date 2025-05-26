@@ -177,7 +177,7 @@
         "format-full": "{capacity}%",
         "interval": 2,
         "states": {
-            "warning": 25,
+            "warning": 20,
             "critical": 10
         },
         "tooltip": false,
