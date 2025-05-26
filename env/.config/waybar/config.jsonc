@@ -45,15 +45,13 @@
     "exec": "spotifatius monitor",
   },
   "custom/spotify2": {
-    "format": "  {}",
+    "format": "{}",
     "hide-empty-text": true,
     "return-type": "json",
     "on-click": "playerctl -p spotify play-pause",
     "on-click-middle": "hyprctl dispatch workspace 10",
     "on-click-right": "hyprctl dispatch workspace 10",
     "exec": "~/.config/waybar/scripts/wrapper.sh",
-    "align": 0,
-    "justify": "left",
     "min-length": 30,
   },
   "mpris": {
