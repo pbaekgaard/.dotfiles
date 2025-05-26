@@ -114,6 +114,16 @@ hyprland_rounding=$(awk -v theme="$theme" '
   }
 ' "$CONFIG_FILE")
 
+hyprland_animations=$(awk -v theme="$theme" '
+  $0 == "[" theme "]" { in_theme = 1; next }
+  /^\[.*\]/ { in_theme = 0 }
+  in_theme && /^animations=/ {
+    split($0, a, "=")
+    print a[2]
+    exit
+  }
+' "$CONFIG_FILE")
+
 hyprland_gaps=$(awk -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
   /^\[.*\]/ { in_theme = 0 }
@@ -153,6 +163,7 @@ sed -i "s/^[[:space:]]*col.active_border = .*/    col.active_border =  rgba\($hy
 sed -i "s/^[[:space:]]*rounding = .*/    rounding =  $hyprland_rounding/" ~/.config/hypr/hyprland.conf
 sed -i "s/^[[:space:]]*gaps_in = .*/    gaps_in =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
 sed -i "s/^[[:space:]]*gaps_out = .*/    gaps_out =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
+sed -i "s/^[[:space:]]*enabled = .*, please :)/    enabled =  $hyprland_animations, please \:)/" ~/.config/hypr/hyprland.conf
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 

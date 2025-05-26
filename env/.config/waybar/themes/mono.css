@@ -58,6 +58,10 @@ button:hover {
 	color: #f28779;
 	font-weight: bold;
 }
+#workspaces button {
+	padding-left: 0px;
+	padding-right: 20px;
+}
 
 #clock {
 	color: #C3B79F;
