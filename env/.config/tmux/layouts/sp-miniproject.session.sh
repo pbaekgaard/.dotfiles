@@ -2,17 +2,18 @@
 # Must be called before `initialize_session`.
 TYPE="school"
 # TYPE="dev"
-session_folder_root="$HOME/$TYPE/{{SESSION_NAME}}"
+session_folder_root="$HOME/$TYPE/SP/sp-miniproject"
 mkdir -p $session_folder_root
 
 session_root "$session_folder_root"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
-if initialize_session "{{SESSION_NAME}}"; then
+if initialize_session "sp-miniproject"; then
 
   # Create a new window inline within session layout definition.
   new_window "nvim"
+  run_cmd "nvim -c 'lua =require(\"oil\").open_float()'"
   new_window "term"
 
   # Load a defined window layout.

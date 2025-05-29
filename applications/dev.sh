@@ -20,3 +20,5 @@ paru -S --needed --noconfirm poetry python-httpx python-pip
 # Markdown
 sudo pacman -S --needed --noconfirm markdownlint
 
+# latex
+paru -S --needed --noconfirm texlive-fontsrecommended texlive-latexrecommended pandoc
