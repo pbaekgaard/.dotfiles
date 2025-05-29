@@ -21,4 +21,4 @@ paru -S --needed --noconfirm poetry python-httpx python-pip
 sudo pacman -S --needed --noconfirm markdownlint
 
 # latex
-paru -S --needed --noconfirm texlive-fontsrecommended texlive-latexrecommended pandoc
+paru -S --needed --noconfirm texlive-fontsrecommended texlive-latexrecommended texlive-langgreek pandoc texlive-mathscience texlive-binextra

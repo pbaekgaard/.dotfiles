@@ -13,7 +13,7 @@ if initialize_session "sp-miniproject"; then
 
   # Create a new window inline within session layout definition.
   new_window "nvim"
-  run_cmd "nvim -c 'lua =require(\"oil\").open_float()'"
+  run_cmd "nvim ."
   new_window "term"
 
   # Load a defined window layout.
