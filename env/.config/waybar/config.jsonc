@@ -20,7 +20,6 @@
     "bluetooth",
     "battery",
     "tray",
-    "custom/notification",
     "custom/keyboard_layout",
   ],
   "custom/waybar-scrolling-mpris": {
@@ -113,6 +112,7 @@
       "mode-mon-col": 1,
       "on-scroll": 1,
     },
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
     "tooltip-format": "<span color='#cdd6f4' font='MonaspiceNe NF 16'><tt><small>{calendar}</small></tt></span>",
   },
   "cpu": {

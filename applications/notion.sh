@@ -2,6 +2,7 @@
 
 # Install Notion and dependencies
 paru -S --needed --noconfirm notion-app-enhanced
+
 sudo npm i -g asar
 
 resourcefolder="/opt/Notion Enhanced/resources"
