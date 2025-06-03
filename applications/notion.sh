@@ -12,7 +12,8 @@ sudo asar extract "$resourcefolder/app.asar" "$resourcefolder/app"
 
 # Define paths
 preloadjs="$resourcefolder/app/renderer/preload.js"
-patchfile="notionfix.txt"
+script_dir="$(dirname "$(realpath "$0")")"  # Get the absolute path of the script directory
+patchfile="$script_dir/notionfix.txt"  # Ensure the patch file is relative to the script's location
 
 # Check if files exist
 if ! sudo test -f "$preloadjs"; then

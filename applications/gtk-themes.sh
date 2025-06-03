@@ -1,3 +1,5 @@
+#/bin/sh
+set -e
 THEMES_FOLDER=$HOME/.themes
 mkdir -p $THEMES_FOLDER
 

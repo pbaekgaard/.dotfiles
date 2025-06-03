@@ -1,9 +1,15 @@
+#!/bin/sh
+set -e
 # Neovim and Tmux
 paru -S --needed --noconfirm neovim tmux lazygit
 mkdir -p $HOME/.config/nvim
+cp -r $HOME/.config/nvim $HOME/.config/nvim.bak
+rm -rf $HOME/.config/nvim
 git clone git@github.com:pbaekgaard/kickstart.nvim $HOME/.config/nvim
 
 mkdir -p $HOME/.config/tmux/plugins
+cp -r $HOME/.config/tmux/plugins $HOME/.config/tmux/plugins.bak 
+rm -rf $HOME/.config/tmux/plugins
 git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git $HOME/.config/tmux/plugins/tmuxifier
 

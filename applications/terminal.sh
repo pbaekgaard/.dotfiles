@@ -1,3 +1,5 @@
+#!/bin/sh
+set -e
 # ghostty
 paru -S --needed --noconfirm ghostty
 # zsh

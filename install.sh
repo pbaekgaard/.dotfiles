@@ -24,7 +24,7 @@ done
 echo "Copying dotfiles..."
 rm -rf $HOME/.config/nvim
 cp -r ./env/.local $HOME
-cp -r ./env/.config $HOME
+cp -rf ./env/.config $HOME
 cp -r ./env/.zshrc $HOME/.zshrc;
 rm -rf $HOME/.config/nvim
 ln -s $HOME/.dotfiles/env/.config/nvim $HOME/.config/nvim -f 
@@ -63,10 +63,9 @@ fi
 
 # tools (exa, zoxide, brew, waybar)
 paru -S --needed --noconfirm exa zoxide waybar fzf
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # hyprland stuff
-paru -S hypridle hyprshot hyprlock --needed --confirm
+paru -S hypridle hyprshot-git hyprlock --needed --noconfirm
 
 echo "hello"
 for script in ~/.dotfiles/fonts/*.sh; do
