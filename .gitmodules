@@ -3,7 +3,7 @@
 	url = https://github.com/pbaekgaard/kickstart.nvim
 [submodule "wallpapers"]
 	path = wallpapers
-	url = https://github.com/pbaekgaard/wallpapers
+	url = git@github.com:pbaekgaard/wallpapers
 [submodule "env/.config/tmux/plugins/tmux-ayu-theme"]
 	path = env/.config/tmux/plugins/tmux-ayu-theme
 	url = https://github.com/TechnicalDC/tmux-ayu-theme
