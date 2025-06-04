@@ -65,33 +65,71 @@ tmux_theme=$(awk -F= -v theme="$theme" '
 swaync_theme=$(awk -F= -v theme="$theme" '/^\['"$theme"'\]/{a=1} a==1&&$1~/swaync/{print $2; exit}' "$CONFIG_FILE")
 
 # Try to get wallpaper from config
-wallpaper=$(awk -F= -v theme="$theme" '
+wallpaper_raw=$(awk -v theme="$theme" '
   $0 == "[" theme "]" { in_theme = 1; next }
   /^\[.*\]/ { in_theme = 0 }
-  in_theme && $1 == "wallpaper" {
-    gsub(/^[ \t]+|[ \t]+$/, "", $2);
-    print $2;
+  in_theme && match($0, /^[ \t]*wallpaper[ \t]*=[ \t]*\{/ ) {
+    val = substr($0, RSTART + RLENGTH - 1);
+    while (val !~ /\}/ && getline line) val = val "\n" line;
+    print val;
     exit
   }
 ' "$CONFIG_FILE")
 
-# Expand ~ if present
-wallpaper=$(echo "$wallpaper" | sed "s|~|$HOME|")
+# Remove outer { ... }
+wallpaper_raw=$(echo "$wallpaper_raw" | sed 's/^[[:space:]]*{//; s/}[[:space:]]*$//')
 
-# If wallpaper is missing, empty, or invalid, fall back to a random one from the base theme's folder
-if [ -z "$wallpaper" ] || [ ! -f "$wallpaper" ]; then
-    echo "Wallpaper not specified or invalid for theme '$theme'. Falling back to random image from '$theme_base'."
-    wallpaper_dir="$HOME/wallpapers/$theme_base"
-    if [ ! -d "$wallpaper_dir" ]; then
-        echo "Error: Wallpaper folder '$wallpaper_dir' does not exist."
-        exit 1
+wallpaper_raw=$(echo "$wallpaper_raw" | tr -d '\n\r' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+# Clean up whitespace
+# wallpaper_raw=$(echo "$wallpaper_raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+echo $wallpaper_raw
+# Remove surrounding spaces
+
+# Handle dictionary-style wallpaper assignment
+# wallpaper_raw is already the cleaned-up string of DP-3=...,HDMI-A-1=...
+
+if [ -n "$wallpaper_raw" ]; then
+  echo "wallpaper_raw=$wallpaper_raw"
+    # Split into array (on comma)
+  # Expand tilde and iterate
+  IFS=',' read -ra entries <<< "$wallpaper_raw"
+  for entry in "${entries[@]}"; do
+      IFS='=' read -r key val <<< "$entry"
+      # Expand ~ manually
+      val="${val/#\~/$HOME}"
+      swww img "$val" --outputs "$key" --transition-type=outer --transition-duration=2 --transition-pos=top-right &
+  done
+else
+    # Fallback: single wallpaper path
+    wallpaper=$(awk -v theme="$theme" '
+      $0 == "[" theme "]" { in_theme = 1; next }
+      /^\[.*\]/ { in_theme = 0 }
+      in_theme && $1 == "wallpaper" && $2 !~ /^\{/ {
+        sub(/^wallpaper[ \t]*=[ \t]*/, "", $0)
+        print $0
+        exit
+      }
+    ' "$CONFIG_FILE" | sed "s|~|$HOME|" | xargs)
+
+    if [ -z "$wallpaper" ] || [ ! -f "$wallpaper" ]; then
+        echo "Fallback: Using random wallpaper for theme '$theme'"
+        wallpaper_dir="$HOME/wallpapers/$theme_base"
+        if [ ! -d "$wallpaper_dir" ]; then
+            echo "❌ No such wallpaper directory: $wallpaper_dir"
+            exit 1
+        fi
+        wallpaper=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
+        if [ -z "$wallpaper" ]; then
+            echo "❌ No valid image files in: $wallpaper_dir"
+            exit 1
+        fi
     fi
 
-    wallpaper=$(find "$wallpaper_dir" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)
-    if [ -z "$wallpaper" ]; then
-        echo "Error: No image files found in '$wallpaper_dir'."
-        exit 1
-    fi
+    echo "Using fallback wallpaper: $wallpaper"
+    swww img "$wallpaper" --transition-type=outer --transition-duration=2 --transition-pos=top-right &
+    ln -sf "$wallpaper" "$HOME/.config/wall.png"
 fi
 
 hyprland_color=$(awk -v theme="$theme" '
@@ -138,8 +176,6 @@ echo "setting hyprland color to: $hyprland_color"
 # Extract base theme name before first dash (e.g., "catppuccin" from "catppuccin-macchiato")
 theme_base=$(echo "$theme" | cut -d'-' -f1)
 
-echo "Using wallpaper: $wallpaper"
-swww img "$wallpaper" --transition-type=outer --transition-duration=2 --transition-pos=top-right &
 ln -s $wallpaper $HOME/.config/wall.png -f
 
 # Change Neovim theme

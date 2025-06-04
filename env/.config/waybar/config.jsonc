@@ -1,9 +1,9 @@
 {
   "layer": "bottom",
   "position": "top",
-  "output": "eDP-1",
+  "output": "DP-3",
   "reload_style_on_change": true,
-  "height": 40,
+  "height": 10,
   "spacing": 2,
   "exclusive": true,
   "gtk-layer-shell": true,
@@ -71,7 +71,7 @@
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{id}",
-    "all-outputs": true,
+    "all-outputs": false,
     "disable-scroll": false,
     "active-only": false,
     "ignore-workspaces": ["10","11"],
