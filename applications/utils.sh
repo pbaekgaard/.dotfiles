@@ -43,3 +43,4 @@ xdg-mime default org.gnome.Nautilus.desktop inode/directory
 # other
 paru -S --needed --noconfirm socat
 
+paru -S --needed --noconfirm thunar rsync
