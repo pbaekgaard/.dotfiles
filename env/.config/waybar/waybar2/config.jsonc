@@ -1,9 +1,9 @@
 {
   "layer": "bottom",
   "position": "top",
-  "output": "DP-3",
+  "output": "eDP-1",
   "reload_style_on_change": true,
-  "height": 10,
+  "height": 40,
   "spacing": 2,
   "exclusive": true,
   "gtk-layer-shell": true,
@@ -48,6 +48,8 @@
     "hide-empty-text": true,
     "return-type": "json",
     "on-click": "playerctl -p spotify play-pause",
+    "on-click-middle": "hyprctl dispatch workspace 10",
+    "on-click-right": "hyprctl dispatch workspace 10",
     "exec": "~/.config/waybar/scripts/wrapper.sh",
     "align": 0,
     "justify": "left",
@@ -68,14 +70,11 @@
   },
   "hyprland/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
-    "all-outputs": false,
+    "format": "{id}",
+    "all-outputs": true,
     "disable-scroll": false,
     "active-only": false,
-    "ignore-workspaces": ["11"],
-    "format-icons": {
-      "10": "󰖺 "
-    }
+    "ignore-workspaces": ["10","11"],
   },
   "hyprland/window": {
     "format": "{title}",

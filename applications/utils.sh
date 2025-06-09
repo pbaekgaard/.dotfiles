@@ -44,3 +44,5 @@ xdg-mime default org.gnome.Nautilus.desktop inode/directory
 paru -S --needed --noconfirm socat
 
 paru -S --needed --noconfirm thunar rsync discord spotify spicetify-cli spicetify-marketplace-bin
+
+paru -S --needed --noconfirm swaync zscroll

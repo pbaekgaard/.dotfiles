@@ -1,0 +1,20 @@
+### Editing /home/pbk/.config/systemd/user/xdg-desktop-portal.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+
+
+### Edits below this comment will be discarded
+
+
+### /usr/lib/systemd/user/xdg-desktop-portal.service
+# [Unit]
+# Description=Portal service
+# PartOf=graphical-session.target
+# Requires=dbus.service
+# After=dbus.service
+# 
+# [Service]
+# Type=dbus
+# BusName=org.freedesktop.portal.Desktop
+# ExecStart=/usr/lib/xdg-desktop-portal
+# Slice=session.slice
