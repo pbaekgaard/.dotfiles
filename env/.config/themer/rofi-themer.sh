@@ -195,11 +195,11 @@ fi &
 # Change rofi theme
 sed -i "s/^[[:space:]]*selected-bg: .*/  selected-bg: $primary_color;/" ~/.config/rofi/config.rasi
 # Change hyprland settings
-sed -i "s/^[[:space:]]*col.active_border = .*/    col.active_border =  rgba\($hyprland_color\)/" ~/.config/hypr/hyprland.conf
-sed -i "s/^[[:space:]]*rounding = .*/    rounding =  $hyprland_rounding/" ~/.config/hypr/hyprland.conf
-sed -i "s/^[[:space:]]*gaps_in = .*/    gaps_in =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
-sed -i "s/^[[:space:]]*gaps_out = .*/    gaps_out =  $hyprland_gaps/" ~/.config/hypr/hyprland.conf
-sed -i "s/^[[:space:]]*enabled = .*, please :)/    enabled =  $hyprland_animations, please \:)/" ~/.config/hypr/hyprland.conf
+sed -i "s/^[[:space:]]*col.active_border = .*/    col.active_border =  rgba\($hyprland_color\)/" ~/.config/hypr/config/variables.conf
+sed -i "s/^[[:space:]]*rounding = .*/    rounding =  $hyprland_rounding/" ~/.config/hypr/config/decorations.conf
+sed -i "s/^[[:space:]]*gaps_in = .*/    gaps_in =  $hyprland_gaps/" ~/.config/hypr/config/variables.conf
+sed -i "s/^[[:space:]]*gaps_out = .*/    gaps_out =  $hyprland_gaps/" ~/.config/hypr/config/variables.conf
+sed -i "s/^[[:space:]]*enabled = .*, please :)/    enabled =  $hyprland_animations, please \:)/" ~/.config/hypr/config/animations.conf
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
 

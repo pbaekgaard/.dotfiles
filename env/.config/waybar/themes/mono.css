@@ -15,6 +15,7 @@ window#waybar {
   background-color: #2A2D38;
   padding-bottom: 0px;
   margin-bottom: 0px;
+  border-radius: 0px;
 }
 window#waybar>box {
 	padding-left:20px;

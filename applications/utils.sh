@@ -33,7 +33,7 @@ paru -S --needed --noconfirm swww
 paru -S --needed --noconfirm kanshi
 
 # rofi
-paru -S --needed --noconfirm rofi
+paru -S --needed --noconfirm rofi-wayland
 
 # nautilus
 paru -S --needed --noconfirm nautilus
