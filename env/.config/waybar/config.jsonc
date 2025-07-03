@@ -33,7 +33,7 @@
 	  "Stopped": "",
       },
       "on-click": "playerctl -p spotify play-pause",
-      "length": 35,
+      "length": 30,
   },
   "custom/spotify": {
     "format": "  {}",
@@ -49,9 +49,9 @@
     "return-type": "json",
     "on-click": "playerctl -p spotify play-pause",
     "exec": "~/.config/waybar/scripts/wrapper.sh",
-    "align": 0,
-    "justify": "left",
-    "min-length": 30,
+    // "align": 0,
+    // "justify": "left",
+    // "min-length": 30,
   },
   "mpris": {
     "player": "spotify",
@@ -89,8 +89,9 @@
 	"show-passive-items": true,
 	"icon-size": 21,
 	"spacing": 10,
+    "icon_theme": "Papirus",  // or whatever icon theme you have installed
 	"icons": {
-	    "blueman": "bluetooth",
+	    "blueberry": "bluetooth",
 	    "Spotify": "Spotify",
 	    "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
 	}
@@ -209,6 +210,6 @@
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "hyprctl dispatch exec '[float; size 529 512; move 1620 50] blueman-manager'"
+	"on-click": "hyprctl dispatch exec '[float; size 529 512; move 2904 32] blueberry'"
 }
 }

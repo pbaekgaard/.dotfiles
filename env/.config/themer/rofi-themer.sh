@@ -202,6 +202,19 @@ sed -i "s/^[[:space:]]*gaps_out = .*/    gaps_out =  $hyprland_gaps/" ~/.config/
 sed -i "s/^[[:space:]]*enabled = .*, please :)/    enabled =  $hyprland_animations, please \:)/" ~/.config/hypr/config/animations.conf
 # Change Ghostty theme
 sed -i "s/^theme = .*/theme = $ghostty_theme/g" ~/.config/ghostty/config &
+# Decide opacity value
+if [[ "$ghostty_theme" == "mono" ]]; then
+    opacity_value="1"
+else
+    opacity_value="0.9"
+fi
+
+# Update or insert the opacity line
+if grep -q "^background-opacity = " ~/.config/ghostty/config; then
+    sed -i "s/^background-opacity = .*/background-opacity = $opacity_value/" ~/.config/ghostty/config
+else
+    echo "opacity = $opacity_value" >> ~/.config/ghostty/config
+fi
 
 # Change Waybar theme
 ln -s "$HOME/.config/waybar/themes/$waybar_theme.css" $HOME/.config/waybar/style.css -f &
@@ -222,8 +235,6 @@ gsettings set org.gnome.desktop.wm.preferences theme $gtk_theme &
 sed -i -E 's/(gtk-theme-name=")(.*)(")/\1'$gtk_theme'\3/g' ~/.gtkrc-2.0 &
 
 # gtk 3.0
-rm -r ~/.config/gtk-3.0/* 
-cp -r $HOME/.themes/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/ || cp -r ~/.themes/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/ || cp -r ~/.config/themes/gtk/$gtk_theme/gtk-3.0/* ~/.config/gtk-3.0/ &
 sed -i -E 's/(gtk-theme-name=)(.*)/\1'$gtk_theme'/g' ~/.config/gtk-3.0/settings.ini &
 
 # gtk 4.0

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=pomodorolm
+Comment=pomodorolmstartup script
+Exec=/usr/bin/pomodorolm 
+StartupNotify=false
+Terminal=false

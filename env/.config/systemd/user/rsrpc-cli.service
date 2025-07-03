@@ -1,0 +1,11 @@
+[Unit]
+Description=Run rsrpc-cli on user login
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/rsrpc-cli
+Restart=always
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=default.target

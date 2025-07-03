@@ -15,7 +15,6 @@ while IFS= read -r line; do
     # printf ""
     # else
 if [ "$status" = "Off" ]; then
-        echo "STATUS IS Off"
         printf ''
     else
         printf '{"text": "%s", "class": "%s" }\n' "$text" "$status"
