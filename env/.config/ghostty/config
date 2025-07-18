@@ -1,5 +1,5 @@
 # theme = Monokai Pro Machine # Flavours: Spectrum, Machine, Octagon, Ristretto 
-theme = catppuccin-mocha
+theme = mono
 # background = #2A2D38
 #theme = Solarized Dark Higher Contrast
 # background = #323a3f
@@ -28,4 +28,4 @@ font-feature = ss10
 font-feature = liga
 font-feature = calt
 font-feature = dlig off
-background-opacity = 0.9
+background-opacity = 1
