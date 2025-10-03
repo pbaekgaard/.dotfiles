@@ -14,7 +14,7 @@ configuration {
   fg: #dddfe3;
   font: @font;
 
-  selected-bg: #f28779;
+  selected-bg: #fe8019;
   selected-fg: @bg;
 
   // for windows
