@@ -1,9 +1,10 @@
 # theme = Monokai Pro Machine # Flavours: Spectrum, Machine, Octagon, Ristretto 
-theme = Gruvbox Dark Hard
+theme = Monokai Pro Ristretto
 # background = #2A2D38
 # theme = Solarized Dark Higher Contrast
 # background = #323a3f
 # background = #192330
+background-opacity = 0.95
 window-decoration = false
 window-padding-x = 4
 window-padding-y = 2
@@ -28,4 +29,3 @@ font-feature = ss10
 font-feature = liga
 font-feature = calt
 font-feature = dlig off
-background-opacity = 0.9
