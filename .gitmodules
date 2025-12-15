@@ -1,3 +1,14 @@
-[submodule "nvim/.config/nvim"]
-	path = nvim/.config/nvim
+[submodule "env/.config/tmux/plugins/monokai-tmux"]
+	path = env/.config/tmux/plugins/monokai-tmux
+	url = https://github.com/jogihood/monokai-tmux
+
+[submodule "env/.config/tmux/plugins/omarchy-tmux"]
+	path = env/.config/tmux/plugins/omarchy-tmux
+	url = https://github.com/joaofelipegalvao/omarchy-tmux.git
+
+[submodule "env/.config/tmux/plugins/tmux-monokai-pro"]
+	path = env/.config/tmux/plugins/tmux-monokai-pro
+	url = https://github.com/maxpetretta/tmux-monokai-pro
+[submodule "env/.config/nvim"]
+	path = env/.config/nvim
 	url = https://github.com/pbaekgaard/kickstart.nvim

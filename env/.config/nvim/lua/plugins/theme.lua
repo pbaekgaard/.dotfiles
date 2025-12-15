@@ -1,0 +1,1 @@
+/home/pbk/.config/omarchy/current/theme/neovim.lua
