@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+notify=false
+for arg in "$@"; do
+  [ "$arg" = "--notify" ] && notify=true
+done
+
+if [ "$(pgrep -fc "cachy-update")" -gt 1 ] || pgrep -f "omarchy-update" >/dev/null 2>&1; then
+  $notify && notify-send "check-updates" "UPDATE SCRIPT ALREADY RUNNING"
+  exit 2
+fi
+
+updates=0
+
+if pacman -Qu 2>/dev/null | grep -qv '^$'; then
+  updates=1
+fi
+
+if paru -Qua 2>/dev/null | grep -qv '^$'; then
+  updates=1
+fi
+
+if flatpak remote-ls --updates 2>/dev/null | grep -qv '^$'; then
+  updates=1
+fi
+
+if [ "$updates" -eq 0 ]; then
+  $notify && notify-send "check-updates" "NO UPDATE FOUND"
+  exit 1
+else
+  $notify && notify-send "check-updates" "UPDATE FOUND"
+  exit 0
+fi

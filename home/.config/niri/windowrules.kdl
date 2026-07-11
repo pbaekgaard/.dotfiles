@@ -1,0 +1,72 @@
+// Force all windows to DP-3, unless otherwise specified (e.g. Spotify and teamspeak)
+window-rule {
+  match app-id=r".*"
+  open-on-output "DP-3"
+}
+
+window-rule {
+  match app-id=r"Spotify"
+  default-column-width {
+    proportion 0.98
+    }
+  default-window-height {
+    proportion 0.33333
+    }
+  default-floating-position x=11 y=1271 relative-to="top-left"
+  open-floating true
+  open-on-output "HDMI-A-1"
+  open-focused false
+}
+
+window-rule {
+  match app-id=r"teamspeak-client|.*discord.*"
+  default-column-width {
+    fixed 1052
+    }
+  default-window-height {
+    fixed 1250
+    }
+  default-floating-position x=14 y=12 relative-to="top-left"
+  open-floating true
+  open-on-output "HDMI-A-1"
+  open-focused false
+}
+
+window-rule {
+    match app-id="steam" title=r"^notificationtoasts_\d+_desktop$"
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r"^org\.wezfurlong\.wezterm$"
+    default-column-width 
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r"firefox$" title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule { match app-id=r"steam_app_.*"; open-fullscreen true; }
+
+window-rule { match app-id=r"steam" title=r"Friends List"; default-column-width { fixed 440; }; default-window-height { fixed 860; }; open-floating true; }
+
+window-rule { 
+    // Match all Steam app windows...
+    match app-id=r"steam"
+    
+    // ...EXCEPT the main Steam window / News popups
+    exclude title=r"^Steam$|^News$|Friends List"
+
+    default-column-width { fixed 680; }
+    default-window-height { fixed 570; }
+    open-floating true
+}
